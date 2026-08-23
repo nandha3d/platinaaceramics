@@ -1,0 +1,36 @@
+{
+  "name": "platinaa-ceramics",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Platinaa Industrial Ceramics — inert alumina ceramic balls, catalyst bed support media, ceramic tower packing and adsorbents.",
+  "type": "module",
+  "scripts": {
+    "setup": "npm install",
+    "start": "npm install && vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "oxlint"
+  },
+  "dependencies": {
+    "@react-three/cannon": "^6.6.0",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@react-three/postprocessing": "^3.0.4",
+    "@types/three": "^0.185.1",
+    "canvas-confetti": "^1.9.4",
+    "lucide-react": "^1.26.0",
+    "postprocessing": "^6.39.3",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-router-dom": "^7.18.2",
+    "three": "^0.185.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "oxlint": "^1.71.0",
+    "vite": "^8.1.1"
+  }
+}

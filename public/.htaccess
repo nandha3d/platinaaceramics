@@ -1,0 +1,27 @@
+# SPA fallback — required for BrowserRouter.
+# Without this, a deep link such as /products/ceramic-raschig-rings is requested
+# from Apache as a real file, which does not exist, so the host returns 404
+# before React ever loads. Rewriting unmatched paths to index.html lets the
+# router resolve them client-side. Real files and directories are served as-is.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Never rewrite requests that map to an actual file or directory.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Hashed asset filenames are immutable; the HTML shell must not be cached or
+# clients keep loading an old bundle after a deploy.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|woff2|jpg|png|svg|webp|avif)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>

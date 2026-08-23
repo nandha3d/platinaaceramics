@@ -1,0 +1,39 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ---------------------------------------------------------------------------
+# Commercial and client-supplied documents — deliberately NOT in the repo.
+# refinery_estimate.html is Animazon Tech's priced estimate to the client
+# (rates, hours, totals). The PDFs/DOCX are the client's own specification
+# documents. None are needed to build the site, and pushing them would publish
+# them to whoever can read the repo.
+# ---------------------------------------------------------------------------
+refinery_estimate.html
+*.pdf
+*.docx
+
+# Local render tooling output
+/render/out/
+/render/staging/

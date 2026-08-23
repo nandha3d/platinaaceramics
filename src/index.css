@@ -1,0 +1,1072 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Condensed:wght@400;600;700&family=Roboto+Mono:wght@400;500;600&display=swap');
+@import './palettes.css';
+
+:root {
+  --font-sans: 'Roboto', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-display: 'Roboto Condensed', 'Roboto', system-ui, Helvetica, Arial, sans-serif;
+  --font-mono: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* ---- Neutral scale. Cool grey, biased a few degrees toward the navy so it
+         reads as chosen rather than default. Ground #F2F2F2 is lifted straight
+         from the printed datasheet. ---- */
+  --sand-50:  #FAFAFA;
+  --sand-100: #F2F2F2;
+  --sand-200: #E6E6E9;
+  --sand-300: #D4D6DC;
+  --sand-400: #B0B4BE;
+  --sand-500: #868C99;
+  --sand-600: #5D6879;
+
+  /* ---- Navy scale, sampled from the datasheet: #00102A is the table header
+         bar, #001431 the benefit strip. ---- */
+  --clay-400: #0344A6;
+  --clay-500: #023177;
+  --clay-600: #022356;
+  --clay-700: #01183C;
+  --clay-800: #011431;
+  --clay-900: #010D20;
+
+  /* Named aliases for the navies, for code that shouldn't inherit the old
+     clay-* names. Both point at the same values. */
+  --navy-400: #0344A6;
+  --navy-500: #023177;
+  --navy-600: #022356;
+  --navy-700: #01183C;
+  --navy-800: #011431;
+  --navy-900: #010D20;
+
+  /* ---- Brand red, sampled from the datasheet column headers. ---- */
+  --brand-red: #900100;
+  --brand-red-hover: #B60100;
+  --brand-red-dark: #810100;
+
+  /* Legacy names kept so existing inline styles pick the accent up. */
+  --primary-red: #900100;
+  --primary-red-hover: #B60100;
+  --primary-red-dark: #810100;
+  --primary-red-glow: rgba(144, 1, 0, 0.22);
+  --primary-red-light: rgba(144, 1, 0, 0.09);
+
+  /* ---- Surfaces ---- */
+  --bg-main: #F2F2F2;
+  --bg-surface-1: var(--sand-50);
+  --bg-surface-2: #E6E6E9;
+  --bg-glass: rgba(250, 250, 250, 0.88);
+  --bg-invert: #011431;
+  --surface-card: #FFFFFF;
+
+  --border-light: rgba(1, 20, 49, 0.12);
+  --border-mid: rgba(1, 20, 49, 0.20);
+  --border-glow: rgba(144, 1, 0, 0.38);
+
+  /* ---- Text. Every value below clears WCAG AA (4.5:1) against --bg-main,
+         --surface-card and --bg-surface-2. Check before changing. ---- */
+  --text-bright: #011431;
+  --text-body:   #2B3648;
+  --text-muted:  #3D4859;
+  --text-subtle: #5D6879;
+  --text-invert: #F2F2F2;
+
+  /* ---- Accents ---- */
+  --accent-gold: #7D6236;
+  --accent-blue: #41566E;
+  --accent-emerald: #2F6B4F;
+  --accent-rust: #8D3A22;
+  --accent-steel: #41566E;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-full: 9999px;
+
+  /* ---- Spacing scale, 4px base ---- */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+
+  /* ---- Type scale ---- */
+  --text-2xs: 0.65rem; --text-xs: 0.72rem; --text-sm: 0.80rem;
+  --text-base: 0.88rem; --text-md: 0.96rem; --text-lg: 1.10rem;
+  --text-xl: 1.32rem; --text-2xl: 1.80rem;
+
+  --shadow-sm: 0 1px 2px rgba(1, 20, 49, 0.06);
+  --shadow-md: 0 12px 32px -12px rgba(1, 20, 49, 0.18);
+  --shadow-lg: 0 28px 60px -24px rgba(1, 20, 49, 0.30);
+  --shadow-glow: 0 12px 32px -12px rgba(144, 1, 0, 0.35);
+
+  --transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-bright);
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  font-variant-numeric: lining-nums;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--sand-100); }
+::-webkit-scrollbar-thumb {
+  background: var(--sand-400);
+  border-radius: 0;
+  border: 3px solid var(--sand-100);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--brand-red); }
+
+::selection {
+  background-color: var(--brand-red);
+  color: var(--sand-100);
+}
+
+/* ---------------------------------------------------------------------------
+   Typography
+   --------------------------------------------------------------------------- */
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.012em;
+  line-height: 1.10;
+  text-wrap: balance;
+}
+
+/* The print piece sets its headline in condensed caps; this matches it without
+   forcing uppercase on every heading in the app. */
+.headline-print {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  line-height: 1.02;
+}
+
+.font-mono, .mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* Small uppercase technical label — used for eyebrows and index numbers */
+.label-tech {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-subtle);
+}
+
+/* Editorial rule that sits under section eyebrows */
+.rule-hair {
+  height: 1px;
+  background: var(--border-light);
+  border: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Backgrounds
+   --------------------------------------------------------------------------- */
+.bg-mesh-grid {
+  background-color: var(--bg-main);
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(134, 140, 153, 0.16) 0%, transparent 42%),
+    radial-gradient(circle at 88% 92%, rgba(144, 1, 0, 0.05) 0%, transparent 48%),
+    linear-gradient(to right, rgba(1, 20, 49, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(1, 20, 49, 0.035) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 64px 64px, 64px 64px;
+}
+
+/* Fine paper grain — gives the warm palette physical texture */
+.bg-grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.32'/%3E%3C/svg%3E");
+}
+
+/* ---------------------------------------------------------------------------
+   Cards — flat editorial, hairline borders, no glassmorphism
+   --------------------------------------------------------------------------- */
+.glass-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+  border-color: var(--border-glow);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Bordered spec card — the primary product surface */
+.card-spec {
+  position: relative;
+  background: var(--surface-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.card-spec::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--brand-red);
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-spec:hover {
+  border-color: var(--border-mid);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.card-spec:hover::after { width: 100%; }
+
+/* ---------------------------------------------------------------------------
+   Buttons — squared industrial, not pills
+   --------------------------------------------------------------------------- */
+.btn-primary {
+  background: var(--brand-red);
+  color: var(--surface-card);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  padding: 13px 26px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--brand-red);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition-fast);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  background: var(--brand-red-hover);
+  border-color: var(--brand-red-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px -10px rgba(144, 1, 0, 0.45);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-bright);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.88rem;
+  padding: 13px 24px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-mid);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: var(--sand-100);
+  border-color: var(--brand-red);
+  color: var(--brand-red);
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------------------------
+   Badges
+   --------------------------------------------------------------------------- */
+.badge-red {
+  background: var(--primary-red-light);
+  color: var(--brand-red);
+  border: 1px solid rgba(144, 1, 0, 0.26);
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.badge-outline {
+  background: transparent;
+  color: var(--text-subtle);
+  border: 1px solid var(--border-mid);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---------------------------------------------------------------------------
+   Text treatments
+   --------------------------------------------------------------------------- */
+.text-gradient-red {
+  background: linear-gradient(120deg, var(--clay-800) 0%, var(--brand-red) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-silver {
+  background: linear-gradient(120deg, var(--clay-800) 0%, var(--sand-600) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------------------------------------------------------------------------
+   Layout
+   --------------------------------------------------------------------------- */
+.container-custom {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media (max-width: 768px) {
+  .container-custom { padding: 0 18px; }
+}
+
+/* Spec table shared by product cards and the datasheet modal */
+.spec-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 9px 0;
+  border-bottom: 1px dashed var(--border-light);
+}
+
+.spec-row:last-child { border-bottom: none; }
+
+.spec-row dt {
+  font-size: 0.78rem;
+  color: var(--text-subtle);
+  white-space: nowrap;
+}
+
+.spec-row dd {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-bright);
+  text-align: right;
+}
+
+/* Utility */
+.animate-spin { animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* ---------------------------------------------------------------------------
+   Focus visibility
+   Every form control in the app previously set outline:none with nothing in
+   its place, which left keyboard users with no position indicator at all.
+   One rule covers the lot; :where() keeps specificity at 0 so components can
+   still override deliberately.
+   --------------------------------------------------------------------------- */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--brand-red);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ---------------------------------------------------------------------------
+   Motion kit
+   Transform/opacity only, so every animation stays on the compositor and none
+   of them trigger layout. No JS timers, no animation library.
+   --------------------------------------------------------------------------- */
+@keyframes fadeUp   { from { opacity: 0; transform: translate3d(0, 14px, 0); } to { opacity: 1; transform: none; } }
+@keyframes fadeIn   { from { opacity: 0; } to { opacity: 1; } }
+@keyframes popIn    { from { opacity: 0; transform: scale(0.965); } to { opacity: 1; transform: none; } }
+@keyframes sheenRun { from { transform: translate3d(-120%, 0, 0); } to { transform: translate3d(220%, 0, 0); } }
+
+.anim-fade-up { animation: fadeUp 0.5s var(--ease-out) both; }
+.anim-pop     { animation: popIn 0.32s var(--ease-out) both; }
+.anim-fade    { animation: fadeIn 0.4s var(--ease-out) both; }
+
+/* Stagger children without a per-element style attribute. */
+.stagger > * { animation: fadeUp 0.42s var(--ease-out) both; }
+.stagger > *:nth-child(1) { animation-delay: 0.02s; }
+.stagger > *:nth-child(2) { animation-delay: 0.06s; }
+.stagger > *:nth-child(3) { animation-delay: 0.10s; }
+.stagger > *:nth-child(4) { animation-delay: 0.14s; }
+.stagger > *:nth-child(5) { animation-delay: 0.18s; }
+.stagger > *:nth-child(6) { animation-delay: 0.22s; }
+.stagger > *:nth-child(7) { animation-delay: 0.26s; }
+.stagger > *:nth-child(8) { animation-delay: 0.30s; }
+.stagger > *:nth-child(n+9) { animation-delay: 0.34s; }
+
+/* Scroll reveal. The observer adds .is-in; without JS the content is still
+   visible, so this can never hide content from a crawler or a failed script. */
+.reveal { opacity: 0; transform: translate3d(0, 18px, 0); transition: opacity 0.55s var(--ease-out), transform 0.55s var(--ease-out); }
+.reveal.is-in { opacity: 1; transform: none; }
+
+/* Table rows lift very slightly under the pointer so a long spec table stays
+   trackable across its width. */
+.spec-table tbody tr { transition: background-color 0.18s ease; }
+.spec-table tbody tr:hover { background-color: var(--bg-surface-2) !important; }
+
+/* Product image: slow push-in on card hover. */
+.zoom-wrap { overflow: hidden; }
+.zoom-wrap img { transition: transform 0.7s var(--ease-out); will-change: transform; }
+.zoom-wrap:hover img { transform: scale(1.06); }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-up, .anim-pop, .anim-fade, .stagger > * { animation: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .zoom-wrap img { transition: none !important; }
+  .zoom-wrap:hover img { transform: none !important; }
+}
+
+/* ---------------------------------------------------------------------------
+   Product card
+   Image, two clamped text blocks, spec pills, twin action buttons. Title and
+   description are line-clamped so every card in a row matches height without a
+   JS measure pass.
+   --------------------------------------------------------------------------- */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.22), 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.32s var(--ease-out), box-shadow 0.32s var(--ease-out);
+  will-change: transform;
+}
+.product-card:hover {
+  transform: translate3d(0, -6px, 0);
+  box-shadow: 0 26px 54px -16px rgba(0, 0, 0, 0.34), 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.product-card:focus-within { border-color: var(--brand-red); }
+
+.pc-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--clay-900);
+  flex-shrink: 0;
+}
+.pc-media img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.75s var(--ease-out);
+  will-change: transform;
+}
+.product-card:hover .pc-media img { transform: scale(1.06); }
+
+.pc-chip {
+  position: absolute;
+  top: 12px; right: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #ffffff;
+  backdrop-filter: blur(6px);
+}
+
+.pc-body {
+  padding: 16px 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  flex: 1;
+}
+.pc-title {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-bright);
+  cursor: pointer;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: calc(2 * 1.3em);
+}
+.pc-title:hover { color: var(--brand-red); }
+.pc-desc {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-body);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: calc(2 * 1.5em);
+}
+
+.pc-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 4px; }
+.pc-pill {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--bg-surface-2);
+  color: var(--text-muted);
+  border: 1px solid var(--border-light);
+  white-space: nowrap;
+}
+/* Per-type pill hues. These say what the figure IS, so they are fixed rather
+   than derived from the brand accent — under a palette swap that would collapse
+   all three to one colour and lose the distinction. */
+.pc-pill--grade {
+  background: color-mix(in srgb, #2E5FA3 12%, #ffffff);
+  color: #24487A;
+  border-color: color-mix(in srgb, #2E5FA3 30%, #ffffff);
+  font-weight: 600;
+}
+.pc-pill--density {
+  background: color-mix(in srgb, #1F8A70 12%, #ffffff);
+  color: #16624F;
+  border-color: color-mix(in srgb, #1F8A70 30%, #ffffff);
+  font-weight: 600;
+}
+.pc-pill--acid {
+  background: color-mix(in srgb, #B7791F 13%, #ffffff);
+  color: #7C5210;
+  border-color: color-mix(in srgb, #B7791F 32%, #ffffff);
+  font-weight: 600;
+}
+
+.pc-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border-light);
+  border-top: 1px solid var(--border-light);
+}
+.pc-btn {
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 13px 10px;
+  min-height: 46px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.pc-btn--primary { background: var(--brand-red); color: #ffffff; }
+.pc-btn--primary:hover { background: var(--brand-red-hover); }
+.pc-btn--ghost { background: var(--surface-card); color: var(--text-muted); }
+.pc-btn--ghost:hover { background: var(--bg-surface-2); color: var(--text-bright); }
+.pc-btn--ghost.is-on { background: var(--clay-800); color: var(--text-invert); }
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card, .pc-media img { transition: none !important; }
+  .product-card:hover { transform: none !important; }
+  .product-card:hover .pc-media img { transform: none !important; }
+}
+
+/* ---------------------------------------------------------------------------
+   Spec-sheet infographic tiles
+   --tile-hue is set per tile from the component; it identifies the KIND of
+   property and is deliberately independent of the brand accent, so palette
+   switching does not flatten them all to one colour.
+   --------------------------------------------------------------------------- */
+.prop-tile {
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 18px 16px 16px;
+  background: var(--surface-card);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+}
+.prop-tile::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--tile-hue);
+}
+.prop-tile:hover {
+  transform: translate3d(0, -3px, 0);
+  box-shadow: 0 14px 30px -14px color-mix(in srgb, var(--tile-hue) 55%, transparent);
+}
+.prop-tile-disc {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--tile-hue) 13%, #ffffff);
+  color: var(--tile-hue);
+}
+.prop-tile-value {
+  font-family: var(--font-mono);
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+.prop-tile-label {
+  font-size: 0.68rem;
+  color: var(--text-subtle);
+  line-height: 1.35;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .prop-tile, .feat-disc { transition: none !important; }
+  .prop-tile:hover { transform: none !important; }
+  .feat-row:hover .feat-disc { transform: none !important; }
+}
+
+/* ---------------------------------------------------------------------------
+   Comparison drawer
+   Collapsed: a slim bar. Expanded: a sticky-header property matrix that scrolls
+   inside itself, so the page body never scrolls sideways.
+   --------------------------------------------------------------------------- */
+.cmp-drawer {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 900;
+  width: min(1100px, calc(100vw - 32px));
+  background: var(--surface-card);
+  border: 1px solid var(--border-mid);
+  border-radius: 14px;
+  box-shadow: 0 22px 54px -18px rgba(0, 0, 0, 0.42), 0 4px 14px rgba(0, 0, 0, 0.10);
+  overflow: hidden;
+}
+.cmp-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 13px 18px;
+  flex-wrap: wrap;
+}
+.cmp-names {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-subtle);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cmp-link {
+  background: none;
+  border: none;
+  color: var(--text-subtle);
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 6px;
+  min-height: 36px;
+}
+.cmp-link:hover { color: var(--brand-red); }
+
+.cmp-scroll {
+  max-height: min(56vh, 520px);
+  overflow: auto;
+  border-top: 1px solid var(--border-light);
+}
+.cmp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  min-width: calc(190px + var(--cmp-cols) * 190px);
+}
+.cmp-table th, .cmp-table td {
+  padding: 9px 13px;
+  border-bottom: 1px solid var(--border-light);
+  text-align: left;
+  vertical-align: middle;
+}
+.cmp-rowhead {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: var(--bg-main);
+  color: var(--text-muted);
+  font-weight: 600;
+  width: 190px;
+  border-right: 1px solid var(--border-light);
+}
+.cmp-unit { color: var(--text-subtle); font-family: var(--font-mono); font-size: 0.72rem; }
+.cmp-corner { z-index: 4; }
+.cmp-colhead {
+  position: sticky;
+  top: 0;
+  /* containing block for .cmp-remove */
+  isolation: isolate;
+  z-index: 3;
+  background: var(--clay-800);
+  color: var(--text-invert);
+  text-align: center;
+  padding: 12px 10px;
+  min-width: 190px;
+}
+.cmp-corner {
+  position: sticky;
+  top: 0;
+  background: var(--clay-800);
+  color: var(--text-invert);
+}
+.cmp-thumb {
+  width: 100%;
+  max-width: 132px;
+  /* height:auto is required. The <img> carries width/height attributes for CLS,
+     and those act as presentational hints; aspect-ratio only takes effect when
+     one dimension is auto, so without this the image renders 600px tall and
+     object-fit crops it into a column-height sliver. */
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 7px;
+  display: block;
+  margin: 0 auto 8px;
+}
+.cmp-name {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-invert);
+}
+.cmp-remove {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cmp-remove:hover { background: var(--brand-red); }
+.cmp-section td {
+  background: var(--bg-surface-2);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 8px 13px;
+}
+.cmp-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-bright);
+}
+.cmp-none { color: var(--sand-400); }
+.cmp-table tbody tr:hover td:not(.cmp-section td) { background: var(--bg-surface-1); }
+
+@media (max-width: 640px) {
+  .cmp-names { display: none; }
+  .cmp-rowhead { width: 140px; }
+}
+
+.pc-title a { color: inherit; text-decoration: none; }
+.pc-title a:hover { color: var(--brand-red); }
+
+/* transient notice, replaces the blocking alert() on the compare limit */
+.toast {
+  position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%);
+  z-index: 1100; background: var(--clay-800); color: var(--text-invert);
+  padding: 11px 18px; border-radius: 999px; font-size: 0.82rem; font-weight: 600;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3); animation: fadeUp 0.3s var(--ease-out) both;
+  max-width: calc(100vw - 40px); text-align: center;
+}
+
+/* ---------------------------------------------------------------------------
+   Key feature cards — icon on top, heading, description; bordered rounded card
+   on a clean surface.
+   --------------------------------------------------------------------------- */
+.feat-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 24px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  transition: transform 0.28s var(--ease-out), box-shadow 0.28s var(--ease-out),
+              border-color 0.28s var(--ease-out);
+}
+.feat-card:hover {
+  transform: translate3d(0, -4px, 0);
+  border-color: color-mix(in srgb, var(--tile-hue) 42%, transparent);
+  box-shadow: 0 16px 34px -16px color-mix(in srgb, var(--tile-hue) 60%, transparent);
+}
+.feat-disc {
+  width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: color-mix(in srgb, var(--tile-hue) 13%, #ffffff);
+  color: var(--tile-hue);
+  border: 2px solid color-mix(in srgb, var(--tile-hue) 30%, #ffffff);
+  transition: transform 0.28s var(--ease-out);
+}
+.feat-card:hover .feat-disc { transform: scale(1.07); }
+.feat-head {
+  font-weight: 700; font-size: 0.9rem; line-height: 1.3;
+  color: var(--tile-hue); text-transform: uppercase;
+  letter-spacing: 0.03em; text-wrap: balance;
+}
+.feat-sub {
+  font-size: 0.84rem; color: var(--text-body);
+  line-height: 1.55; max-width: 30ch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feat-card, .feat-disc { transition: none !important; }
+  .feat-card:hover { transform: none !important; }
+  .feat-card:hover .feat-disc { transform: none !important; }
+}
+
+/* ---------------------------------------------------------------------------
+   Sequential reveal
+   The container carries .reveal (observed) and .reveal-seq; its children start
+   offset and settle one after another once the container enters view. Delays
+   live on the children, so a single observer drives the whole group instead of
+   one observer per tile.
+
+   Children are visible with JS disabled: only the transition is gated, and the
+   observer adds .is-in — nothing here can hide content permanently.
+   --------------------------------------------------------------------------- */
+.reveal-seq > * {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+}
+.reveal-seq.is-in > * { opacity: 1; transform: none; }
+.reveal-seq > *:nth-child(1)  { transition-delay: 0.04s; }
+.reveal-seq > *:nth-child(2)  { transition-delay: 0.10s; }
+.reveal-seq > *:nth-child(3)  { transition-delay: 0.16s; }
+.reveal-seq > *:nth-child(4)  { transition-delay: 0.22s; }
+.reveal-seq > *:nth-child(5)  { transition-delay: 0.28s; }
+.reveal-seq > *:nth-child(6)  { transition-delay: 0.34s; }
+.reveal-seq > *:nth-child(7)  { transition-delay: 0.40s; }
+.reveal-seq > *:nth-child(8)  { transition-delay: 0.46s; }
+.reveal-seq > *:nth-child(n+9){ transition-delay: 0.52s; }
+
+/* ---------------------------------------------------------------------------
+   Stat band — the primary theme colour, with a subtle depth wash
+   --------------------------------------------------------------------------- */
+.stat-band {
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--brand-red) 92%, #000000) 0%,
+      var(--brand-red) 52%,
+      color-mix(in srgb, var(--brand-red) 86%, #000000) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.stat-band::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 22% 0%, rgba(255,255,255,0.16) 0%, transparent 58%);
+}
+.stat-band > * { position: relative; z-index: 1; }
+
+/* ---------------------------------------------------------------------------
+   Crush-strength bars — grow from zero when the chart scrolls in
+   --------------------------------------------------------------------------- */
+.bar-track {
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  height: 22px;
+  overflow: hidden;
+}
+.bar-fill {
+  width: 0;
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg,
+    var(--brand-red) 0%,
+    color-mix(in srgb, var(--brand-red) 62%, var(--clay-600)) 100%);
+  transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.bar-chart.is-in .bar-fill { width: var(--bar-pct); }
+/* The row is the reveal-seq child, so each bar inherits its row's delay and the
+   chart fills in reading order. */
+.bar-chart.is-in > *:nth-child(1) .bar-fill { transition-delay: 0.06s; }
+.bar-chart.is-in > *:nth-child(2) .bar-fill { transition-delay: 0.14s; }
+.bar-chart.is-in > *:nth-child(3) .bar-fill { transition-delay: 0.22s; }
+.bar-chart.is-in > *:nth-child(4) .bar-fill { transition-delay: 0.30s; }
+.bar-chart.is-in > *:nth-child(5) .bar-fill { transition-delay: 0.38s; }
+.bar-chart.is-in > *:nth-child(6) .bar-fill { transition-delay: 0.46s; }
+.bar-chart.is-in > *:nth-child(n+7) .bar-fill { transition-delay: 0.54s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-seq > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .bar-fill { transition: none !important; }
+  .bar-chart .bar-fill { width: var(--bar-pct); }
+}
+
+/* ---------------------------------------------------------------------------
+   Composition legend — one row per oxide, full width, readable at a glance
+   --------------------------------------------------------------------------- */
+.comp-legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px 20px;
+  width: 100%;
+}
+.comp-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border: 1px solid var(--border-light);
+  border-radius: 9px;
+  background: var(--surface-card);
+  min-width: 0;
+}
+.comp-swatch {
+  width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0;
+}
+.comp-el {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  white-space: nowrap;
+}
+.comp-val {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-body);
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+/* Property tile labels stay on one line; the full text is on the title
+   attribute so nothing is lost when a long label is clipped. */
+.prop-tile-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.prop-tile-value { white-space: nowrap; }
+
+/* ---------------------------------------------------------------------------
+   Material overview card — sits above the key features and sets up what the
+   icons then summarise.
+   --------------------------------------------------------------------------- */
+.overview-card {
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  background: var(--bg-main);
+  padding: 26px 28px;
+  position: relative;
+  overflow: hidden;
+}
+.overview-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--brand-red);
+}
+.overview-title {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-bright);
+  margin: 0 0 10px;
+}
+.overview-body {
+  font-size: 0.92rem;
+  line-height: 1.72;
+  color: var(--text-body);
+  margin: 0;
+  max-width: 92ch;
+}
