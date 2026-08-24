@@ -19,6 +19,9 @@ export default class ErrorBoundary extends React.Component {
   componentDidCatch(error, info) {
     // Keep the detail in the console even when a quiet fallback is rendered.
     console.error(`[ErrorBoundary${this.props.label ? ` · ${this.props.label}` : ''}]`, error, info);
+    // A quiet fallback hides the reason from anyone not watching the console,
+    // so let the parent surface it on screen if it wants to.
+    this.props.onError?.(error);
   }
 
   render() {
@@ -46,7 +49,7 @@ export default class ErrorBoundary extends React.Component {
             maxWidth: '720px',
             width: '100%',
             background: 'var(--surface-card)',
-            border: '1px solid rgba(1,20,49,0.14)',
+            border: '1px solid color-mix(in srgb, var(--clay-800) 14%, transparent)',
             borderRadius: '6px',
             padding: '32px'
           }}
@@ -87,7 +90,7 @@ export default class ErrorBoundary extends React.Component {
               lineHeight: 1.6,
               color: 'var(--text-bright)',
               background: 'var(--bg-surface-1)',
-              border: '1px solid rgba(1,20,49,0.1)',
+              border: '1px solid color-mix(in srgb, var(--clay-800) 10%, transparent)',
               borderRadius: '4px',
               padding: '16px',
               overflowX: 'auto',
