@@ -8,18 +8,18 @@ export default function PageHeader({ eyebrow, title, lede }) {
       <div className="container-custom">
         {eyebrow && (
           <div style={{
-            display: 'inline-block', background: 'var(--brand-red)', color: '#FFFFFF',
+            display: 'inline-block', background: 'var(--brand-red)', color: 'var(--on-accent)',
             padding: '5px 13px', borderRadius: '3px', fontSize: '0.64rem', fontWeight: 700,
             letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '16px'
           }}>{eyebrow}</div>
         )}
         <h1 className="headline-print" style={{
-          fontSize: 'clamp(1.9rem, 4.2vw, 3rem)', color: '#FFFFFF', marginBottom: lede ? '14px' : 0
+          fontSize: 'clamp(1.9rem, 4.2vw, 3rem)', color: 'var(--on-accent)', marginBottom: lede ? '14px' : 0
         }}>{title}</h1>
         {lede && (
           <p style={{
             maxWidth: '62ch', fontSize: '1rem', lineHeight: 1.65,
-            color: 'rgba(242,242,242,0.80)'
+            color: 'color-mix(in srgb, var(--text-invert) 80%, transparent)'
           }}>{lede}</p>
         )}
       </div>

@@ -27,22 +27,22 @@ const ICONS = {
  * colour and lose the distinction.
  */
 const PROP_STYLE = [
-  [/water|absorpt/i,          Droplets,    '#2E86C1'],
-  [/porosity/i,               Layers,      '#7D5BA6'],
-  [/particle density|density/i, Weight,    '#1F8A70'],
-  [/temp/i,                   Flame,       '#D3541F'],
-  [/round/i,                  Ruler,       '#B7791F'],
-  [/expansion/i,              Maximize2,   '#0E7C86'],
-  [/conduct|thermal/i,        Thermometer, '#C0392B'],
-  [/hardness/i,               Gem,         '#2E5FA3'],
-  [/acid|alkali|resist/i,     ShieldCheck, '#4A7C2F'],
-  [/voidage/i,                Grid3x3,     '#8A5A2B'],
-  [/standard/i,               BadgeCheck,  '#5B6577'],
+  [/water|absorpt/i,          Droplets,    'var(--cat-3)'],
+  [/porosity/i,               Layers,      'var(--cat-5)'],
+  [/particle density|density/i, Weight,    'var(--cat-2)'],
+  [/temp/i,                   Flame,       'var(--cat-1)'],
+  [/round/i,                  Ruler,       'var(--cat-4)'],
+  [/expansion/i,              Maximize2,   'var(--cat-3)'],
+  [/conduct|thermal/i,        Thermometer, 'var(--cat-1)'],
+  [/hardness/i,               Gem,         'var(--cat-3)'],
+  [/acid|alkali|resist/i,     ShieldCheck, 'var(--cat-2)'],
+  [/voidage/i,                Grid3x3,     'var(--cat-4)'],
+  [/standard/i,               BadgeCheck,  'var(--cat-5)'],
 ];
 
 function propStyle(label) {
   const hit = PROP_STYLE.find(([re]) => re.test(label));
-  return hit ? { Icon: hit[1], hue: hit[2] } : { Icon: Gauge, hue: '#5B6577' };
+  return hit ? { Icon: hit[1], hue: hit[2] } : { Icon: Gauge, hue: 'var(--cat-5)' };
 }
 
 /**
@@ -61,19 +61,30 @@ const SHORT_LABEL = {
   'Spalling Resistance': 'Spalling Resistance'
 };
 
-const FEATURE_HUES = ['#2E5FA3', '#C0392B', '#1F8A70', '#7D5BA6', '#D3541F', '#B7791F'];
+const FEATURE_HUES = ['var(--cat-3)', 'var(--cat-1)', 'var(--cat-2)', 'var(--cat-5)', 'var(--cat-1)', 'var(--cat-4)'];
 
-const RULE = 'rgba(1, 20, 49, 0.12)';
+const RULE = 'var(--border-light)';
 
 // Composition bar segment colours — a navy-to-steel ramp, red reserved for the
 // brand accent so it never reads as "one oxide is the important one".
-const SEG = ['#011431', '#022356', '#0344A6', '#41566E', '#6E7F96', '#9AA6B8', '#C2CAD6'];
+// Composition bar segments. Stepped from the palette's own deep tone out to
+// its lightest neutral via color-mix, so the ramp re-derives itself under every
+// theme rather than being a fixed navy list.
+const SEG = [
+  'var(--clay-900)',
+  'var(--clay-700)',
+  'var(--clay-500)',
+  'var(--clay-400)',
+  'color-mix(in srgb, var(--clay-400) 62%, var(--surface-card))',
+  'color-mix(in srgb, var(--clay-400) 38%, var(--surface-card))',
+  'color-mix(in srgb, var(--clay-400) 20%, var(--surface-card))'
+];
 
 /* ------------------------------------------------------------------ */
 function Pill({ children }) {
   return (
     <div style={{
-      display: 'inline-block', background: 'var(--brand-red)', color: '#FFFFFF',
+      display: 'inline-block', background: 'var(--brand-red)', color: 'var(--on-accent)',
       padding: '8px 20px', borderRadius: 'var(--radius-full)', fontSize: '0.72rem',
       fontWeight: 700, letterSpacing: '0.13em', textTransform: 'uppercase',
       boxShadow: '0 8px 20px -8px color-mix(in srgb, var(--brand-red) 70%, transparent)'
@@ -208,31 +219,31 @@ export default function ProductSheet({ product, sheet, openRfqModal }) {
         }}>
           <div>
             <div style={{
-              display: 'inline-block', background: 'var(--brand-red)', color: '#FFFFFF',
+              display: 'inline-block', background: 'var(--brand-red)', color: 'var(--on-accent)',
               padding: '5px 13px', borderRadius: '3px', fontSize: '0.64rem',
               fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase',
               marginBottom: '16px'
             }}>Technical Specification</div>
 
             <h2 className="headline-print" style={{
-              fontSize: 'clamp(1.6rem, 3.3vw, 2.4rem)', color: '#FFFFFF',
+              fontSize: 'clamp(1.6rem, 3.3vw, 2.4rem)', color: 'var(--on-accent)',
               marginBottom: '14px', textWrap: 'balance'
             }}>{product.name}</h2>
 
             <p style={{
-              color: 'rgba(242,242,242,0.80)', fontSize: '0.92rem',
+              color: 'color-mix(in srgb, var(--text-invert) 80%, transparent)', fontSize: '0.92rem',
               lineHeight: 1.6, marginBottom: '14px', maxWidth: '46ch'
             }}>{sheet.strapline}</p>
 
             <p style={{
               fontFamily: 'var(--font-mono)', fontSize: '0.7rem',
-              color: 'rgba(242,242,242,0.58)', letterSpacing: '0.05em'
+              color: 'color-mix(in srgb, var(--text-invert) 58%, transparent)', letterSpacing: '0.05em'
             }}>{product.material} · Grade Code {product.materialType}</p>
           </div>
 
           <div className="zoom-wrap" style={{
             aspectRatio: '4 / 3', borderRadius: '8px',
-            border: '1px solid rgba(242,242,242,0.16)', background: 'var(--clay-900)'
+            border: '1px solid color-mix(in srgb, var(--text-invert) 16%, transparent)', background: 'var(--clay-900)'
           }}>
             <img
               src={`${import.meta.env.BASE_URL}${product.image}`} alt={product.name}
@@ -253,17 +264,17 @@ export default function ProductSheet({ product, sheet, openRfqModal }) {
           {stats.map((s, i) => (
             <div key={s.label} style={{
               textAlign: 'center',
-              borderLeft: i ? '1px solid rgba(255,255,255,0.22)' : 'none'
+              borderLeft: i ? '1px solid color-mix(in srgb, var(--on-accent) 22%, transparent)' : 'none'
             }}>
               <div className="font-mono" style={{
                 fontSize: i === 0 ? 'clamp(1.9rem, 4vw, 2.9rem)' : 'clamp(1.35rem, 2.6vw, 1.9rem)',
                 fontWeight: 700, lineHeight: 1.05,
-                color: '#FFFFFF', letterSpacing: '-0.02em',
+                color: 'var(--on-accent)', letterSpacing: '-0.02em',
                 textShadow: '0 2px 12px rgba(0,0,0,0.30)'
               }}>{s.value}</div>
               <div style={{
                 fontSize: '0.63rem', textTransform: 'uppercase', letterSpacing: '0.14em',
-                color: 'rgba(255,255,255,0.84)', marginTop: '8px'
+                color: 'color-mix(in srgb, var(--on-accent) 84%, transparent)', marginTop: '8px'
               }}>{s.label}</div>
             </div>
           ))}
@@ -318,7 +329,7 @@ export default function ProductSheet({ product, sheet, openRfqModal }) {
                   width: `${Math.max(c.share, 2)}%`,
                   background: c.muted ? 'var(--sand-300)' : SEG[i % SEG.length],
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: c.muted ? 'var(--text-bright)' : '#FFFFFF',
+                  color: c.muted ? 'var(--text-bright)' : 'var(--on-accent)',
                   fontFamily: 'var(--font-mono)', fontSize: '0.68rem', fontWeight: 600,
                   transition: 'filter .2s ease', cursor: 'default'
                 }}

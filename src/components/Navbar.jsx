@@ -39,18 +39,21 @@ export default function Navbar({ openCalculator, openRfqModal, searchQuery, setS
   return (
     <>
       {/* Top Industrial Announcement Bar */}
+      {/* Primary accent, not navy: this strip is the brand's first impression and
+          reads as part of the identity. Every palette defines the -dark variant,
+          so the gradient tracks whichever theme is active. */}
       <div style={{
-        background: 'linear-gradient(90deg, var(--clay-600) 0%, var(--clay-500) 50%, var(--clay-700) 100%)',
-        color: 'var(--surface-card)',
+        background: 'linear-gradient(90deg, var(--brand-red-dark) 0%, var(--brand-red) 50%, var(--brand-red-dark) 100%)',
+        color: 'var(--on-accent)',
         fontSize: '0.8rem',
         fontWeight: '600',
         padding: '7px 0',
-        borderBottom: '1px solid rgba(0, 0, 0, 0.05)'
+        borderBottom: '1px solid rgba(0, 0, 0, 0.08)'
       }}>
         <div className="container-custom" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', fontSize: '0.78rem' }}>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-              <ShieldCheck size={14} style={{ color: 'var(--sand-400)' }} />
+              <ShieldCheck size={14} style={{ color: 'color-mix(in srgb, var(--on-accent) 85%, transparent)' }} />
               ISO 9001:2015 Quality Certified Manufacturer
             </span>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', opacity: 0.95 }}>
@@ -59,14 +62,14 @@ export default function Navbar({ openCalculator, openRfqModal, searchQuery, setS
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '18px', fontSize: '0.78rem' }}>
-            <a href={`tel:${companyInfo.mobile.replace(/\s+/g, '')}`} style={{ color: 'var(--surface-card)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <a href={`tel:${companyInfo.mobile.replace(/\s+/g, '')}`} style={{ color: 'var(--on-accent)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
               <Phone size={13} /> {companyInfo.mobile}
             </a>
             <button 
               onClick={() => openRfqModal()}
               style={{
-                background: 'var(--surface-card)',
-                color: 'var(--clay-500)',
+                background: 'var(--on-accent)',
+                color: 'var(--brand-red)',
                 border: 'none',
                 padding: '3px 12px',
                 borderRadius: '12px',
@@ -87,10 +90,10 @@ export default function Navbar({ openCalculator, openRfqModal, searchQuery, setS
         position: 'sticky',
         top: 0,
         zIndex: 100,
-        background: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'var(--surface-card)',
+        background: scrolled ? 'color-mix(in srgb, var(--on-accent) 95%, transparent)' : 'var(--surface-card)',
         backdropFilter: 'blur(20px)',
         borderBottom: '1px solid var(--border-light)',
-        boxShadow: scrolled ? '0 4px 20px rgba(1, 20, 49, 0.05)' : 'none',
+        boxShadow: scrolled ? '0 4px 20px color-mix(in srgb, var(--clay-800) 5%, transparent)' : 'none',
         transition: 'var(--transition-fast)'
       }}>
         <div className="container-custom" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '76px' }}>
@@ -154,7 +157,7 @@ export default function Navbar({ openCalculator, openRfqModal, searchQuery, setS
                     border: '1px solid var(--border-light)',
                     borderRadius: 'var(--radius-md)',
                     padding: '12px',
-                    boxShadow: '0 20px 40px rgba(1, 20, 49, 0.12)',
+                    boxShadow: '0 20px 40px color-mix(in srgb, var(--clay-800) 12%, transparent)',
                     zIndex: 110
                   }}>
                     <div style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--text-subtle)', padding: '6px 12px', letterSpacing: '0.05em' }}>
@@ -224,7 +227,7 @@ export default function Navbar({ openCalculator, openRfqModal, searchQuery, setS
                   border: '1px solid var(--border-light)',
                   borderRadius: 'var(--radius-md)',
                   padding: '10px',
-                  boxShadow: '0 12px 28px rgba(1, 20, 49, 0.12)'
+                  boxShadow: '0 12px 28px color-mix(in srgb, var(--clay-800) 12%, transparent)'
                 }}>
                   <input
                     type="text"

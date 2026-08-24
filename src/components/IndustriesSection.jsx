@@ -59,7 +59,7 @@ export default function IndustriesSection({ onSelectIndustryFilter }) {
                       display: 'flex',
                       alignItems: 'center',
                       gap: '14px',
-                      boxShadow: '0 2px 8px rgba(1, 20, 49, 0.03)',
+                      boxShadow: '0 2px 8px color-mix(in srgb, var(--clay-800) 3%, transparent)',
                       transition: 'var(--transition-fast)'
                     }}
                   >
@@ -148,13 +148,13 @@ export default function IndustriesSection({ onSelectIndustryFilter }) {
                       key={idx}
                       style={{
                         background: 'var(--surface-card)',
-                        border: '1px solid rgba(10, 32, 80, 0.25)',
+                        border: '1px solid color-mix(in srgb, var(--clay-600) 25%, transparent)',
                         color: 'var(--text-bright)',
                         padding: '6px 14px',
                         borderRadius: 'var(--radius-full)',
                         fontSize: '0.8rem',
                         fontWeight: 600,
-                        boxShadow: '0 2px 6px rgba(1, 20, 49, 0.03)'
+                        boxShadow: '0 2px 6px color-mix(in srgb, var(--clay-800) 3%, transparent)'
                       }}
                     >
                       {prodName}

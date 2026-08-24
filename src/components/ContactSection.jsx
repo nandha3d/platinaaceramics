@@ -1,7 +1,47 @@
 import React, { useState } from 'react';
 import { companyInfo } from '../data/companyInfo';
 import { products } from '../data/products';
-import { Phone, Mail, MapPin, Send, MessageSquare, Clock, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, CheckCircle2 } from 'lucide-react';
+
+/**
+ * Contact channels, styled as datasheet rows rather than generic cards.
+ *
+ * The previous version — pastel circle, big radius, soft tinted panel — is the
+ * default shape every component library produces, and it sat oddly against the
+ * technical language the rest of this site uses (mono labels, hairline rules,
+ * spec tables). This is squared off, indexed 01/02/03 like a parts list, and
+ * leads with a solid accent mark instead of a pastel blob.
+ *
+ * `hue` comes in as a palette token, not a literal, so the three channels stay
+ * distinguishable from each other AND follow the active theme.
+ */
+function ContactCard({ Icon, hue, index, eyebrow, title, href, lines = [], accentFirstLine = false }) {
+  const body = (
+    <>
+      <span className="contact-mark" aria-hidden="true">
+        <Icon size={26} strokeWidth={1.9} />
+      </span>
+      <span className="contact-body">
+        <span className="contact-eyebrow">{eyebrow}</span>
+        <span className="contact-title">{title}</span>
+        {lines.map((line, i) => (
+          <span
+            key={line}
+            className={accentFirstLine && i === 0 ? 'contact-line contact-line--ok' : 'contact-line'}
+          >
+            {line}
+          </span>
+        ))}
+      </span>
+      <span className="contact-index" aria-hidden="true">{index}</span>
+    </>
+  );
+
+  const style = { '--tile-hue': hue };
+  return href
+    ? <a className="contact-card" href={href} style={style}>{body}</a>
+    : <div className="contact-card" style={style}>{body}</div>;
+}
 
 export default function ContactSection({ rfqProduct, onCloseRfq }) {
   const [formState, setFormState] = useState({
@@ -49,89 +89,35 @@ export default function ContactSection({ rfqProduct, onCloseRfq }) {
           <div style={{ gridColumn: 'span 5' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               
-              {/* Phone Card */}
-              <div className="glass-card" style={{ padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '16px', background: 'var(--bg-main)' }}>
-                <div style={{
-                  width: '44px',
-                  height: '44px',
-                  borderRadius: 'var(--radius-sm)',
-                  background: 'var(--primary-red-light)',
-                  color: 'var(--primary-red)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  shrink: 0
-                }}>
-                  <Phone size={22} />
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--text-subtle)', fontWeight: 600, textTransform: 'uppercase' }}>
-                    Call / WhatsApp Sales Desk
-                  </div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-bright)', margin: '4px 0' }}>
-                    {companyInfo.mobile}
-                  </div>
-                  <div style={{ fontSize: '0.85rem', color: 'var(--text-body)' }}>
-                    Landline: {companyInfo.phone}
-                  </div>
-                </div>
-              </div>
+              <ContactCard
+                Icon={Phone}
+                hue="var(--cat-1)"
+                index="01"
+                eyebrow="Call / WhatsApp sales desk"
+                title={companyInfo.mobile}
+                href={`tel:${companyInfo.mobile.replace(/\s/g, '')}`}
+                lines={[`Landline: ${companyInfo.phone}`]}
+              />
 
-              {/* Email Card */}
-              <div className="glass-card" style={{ padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '16px', background: 'var(--bg-main)' }}>
-                <div style={{
-                  width: '44px',
-                  height: '44px',
-                  borderRadius: 'var(--radius-sm)',
-                  background: 'rgba(65, 86, 110, 0.12)',
-                  color: 'var(--accent-blue)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  shrink: 0
-                }}>
-                  <Mail size={22} />
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--text-subtle)', fontWeight: 600, textTransform: 'uppercase' }}>
-                    Official Email Enquiries
-                  </div>
-                  <a href={`mailto:${companyInfo.email}`} style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-bright)', textDecoration: 'none', display: 'block', margin: '4px 0' }}>
-                    {companyInfo.email}
-                  </a>
-                  <div style={{ fontSize: '0.82rem', color: 'var(--accent-emerald)', fontWeight: 600 }}>
-                    Fast response within 2 business hours
-                  </div>
-                </div>
-              </div>
+              <ContactCard
+                Icon={Mail}
+                hue="var(--cat-3)"
+                index="02"
+                eyebrow="Official email enquiries"
+                title={companyInfo.email}
+                href={`mailto:${companyInfo.email}`}
+                lines={['Fast response within 2 business hours']}
+                accentFirstLine
+              />
 
-              {/* Address Card */}
-              <div className="glass-card" style={{ padding: '24px', display: 'flex', alignItems: 'flex-start', gap: '16px', background: 'var(--bg-main)' }}>
-                <div style={{
-                  width: '44px',
-                  height: '44px',
-                  borderRadius: 'var(--radius-sm)',
-                  background: 'rgba(2, 35, 86, 0.12)',
-                  color: 'var(--accent-gold)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  shrink: 0
-                }}>
-                  <MapPin size={22} />
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.78rem', color: 'var(--text-subtle)', fontWeight: 600, textTransform: 'uppercase' }}>
-                    Corporate Office & Works
-                  </div>
-                  <div style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-bright)', margin: '4px 0', lineHeight: 1.5 }}>
-                    {companyInfo.name}
-                  </div>
-                  <div style={{ fontSize: '0.84rem', color: 'var(--text-body)', lineHeight: 1.5 }}>
-                    {companyInfo.address.full}
-                  </div>
-                </div>
-              </div>
+              <ContactCard
+                Icon={MapPin}
+                hue="var(--cat-2)"
+                index="03"
+                eyebrow="Corporate office & works"
+                title={companyInfo.name}
+                lines={[companyInfo.address.full]}
+              />
 
             </div>
           </div>
@@ -149,7 +135,7 @@ export default function ContactSection({ rfqProduct, onCloseRfq }) {
 
               {submitted ? (
                 <div style={{
-                  background: 'rgba(47, 107, 79, 0.08)',
+                  background: 'color-mix(in srgb, var(--accent-emerald) 9%, transparent)',
                   border: '1px solid var(--accent-emerald)',
                   padding: '32px',
                   borderRadius: 'var(--radius-md)',

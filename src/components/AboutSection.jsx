@@ -29,7 +29,7 @@ export default function AboutSection() {
             {/* Core Values grid */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px', marginTop: '32px' }}>
               
-              <div style={{ background: 'var(--surface-card)', padding: '18px 20px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)', boxShadow: '0 4px 12px rgba(1, 20, 49, 0.03)' }}>
+              <div style={{ background: 'var(--surface-card)', padding: '18px 20px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)', boxShadow: '0 4px 12px color-mix(in srgb, var(--clay-800) 3%, transparent)' }}>
                 <Microscope size={22} style={{ color: 'var(--primary-red)', marginBottom: '8px' }} />
                 <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-bright)', marginBottom: '4px' }}>
                   Microstructural R&D Laboratory
@@ -39,7 +39,7 @@ export default function AboutSection() {
                 </p>
               </div>
 
-              <div style={{ background: 'var(--surface-card)', padding: '18px 20px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)', boxShadow: '0 4px 12px rgba(1, 20, 49, 0.03)' }}>
+              <div style={{ background: 'var(--surface-card)', padding: '18px 20px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)', boxShadow: '0 4px 12px color-mix(in srgb, var(--clay-800) 3%, transparent)' }}>
                 <Globe2 size={22} style={{ color: 'var(--accent-blue)', marginBottom: '8px' }} />
                 <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-bright)', marginBottom: '4px' }}>
                   Pan-India & Export Logistics
@@ -68,7 +68,7 @@ export default function AboutSection() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: 'var(--surface-card)',
-                  boxShadow: '0 4px 16px rgba(47, 107, 79, 0.3)'
+                  boxShadow: '0 4px 16px color-mix(in srgb, var(--accent-emerald) 30%, transparent)'
                 }}>
                   <ShieldCheck size={32} />
                 </div>

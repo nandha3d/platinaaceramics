@@ -84,7 +84,7 @@ export default function SpecCalculator({ openRfqModal }) {
           >
             Size your support layer
           </h2>
-          <p style={{ color: 'rgba(242,242,242,0.68)', fontSize: '1rem', lineHeight: 1.65 }}>
+          <p style={{ color: 'color-mix(in srgb, var(--text-invert) 68%, transparent)', fontSize: '1rem', lineHeight: 1.65 }}>
             Enter the vessel internal diameter and the depth of the layer you are grading.
             The calculator returns bed volume and delivered tonnage at the packed bulk
             density of the grade selected.
@@ -103,8 +103,8 @@ export default function SpecCalculator({ openRfqModal }) {
           <div
             style={{
               gridColumn: 'span 7',
-              background: 'rgba(253,251,247,0.04)',
-              border: '1px solid rgba(212,214,220,0.16)',
+              background: 'color-mix(in srgb, var(--surface-card) 4%, transparent)',
+              border: '1px solid color-mix(in srgb, var(--sand-300) 16%, transparent)',
               borderRadius: 'var(--radius-md)',
               padding: '30px'
             }}
@@ -112,7 +112,7 @@ export default function SpecCalculator({ openRfqModal }) {
             {/* Vessel diameter */}
             <div style={{ marginBottom: '28px' }}>
               <div style={fieldLabel}>
-                <label className="label-tech" style={{ color: 'rgba(242,242,242,0.6)' }}>
+                <label className="label-tech" style={{ color: 'color-mix(in srgb, var(--text-invert) 60%, transparent)' }}>
                   Vessel internal diameter
                 </label>
                 <span className="font-mono" style={{ color: 'var(--sand-300)', fontSize: '1rem' }}>
@@ -128,7 +128,7 @@ export default function SpecCalculator({ openRfqModal }) {
                 onChange={(e) => setVesselDia(Number(e.target.value))}
                 style={sliderStyle}
               />
-              <div className="label-tech" style={{ display: 'flex', justifyContent: 'space-between', marginTop: '8px', fontSize: '0.6rem', color: 'rgba(242,242,242,0.38)' }}>
+              <div className="label-tech" style={{ display: 'flex', justifyContent: 'space-between', marginTop: '8px', fontSize: '0.6rem', color: 'color-mix(in srgb, var(--text-invert) 38%, transparent)' }}>
                 <span>500 mm</span>
                 <span>6000 mm</span>
               </div>
@@ -137,7 +137,7 @@ export default function SpecCalculator({ openRfqModal }) {
             {/* Layer depth */}
             <div style={{ marginBottom: '28px' }}>
               <div style={fieldLabel}>
-                <label className="label-tech" style={{ color: 'rgba(242,242,242,0.6)' }}>
+                <label className="label-tech" style={{ color: 'color-mix(in srgb, var(--text-invert) 60%, transparent)' }}>
                   Layer depth
                 </label>
                 <span className="font-mono" style={{ color: 'var(--sand-300)', fontSize: '1rem' }}>
@@ -153,7 +153,7 @@ export default function SpecCalculator({ openRfqModal }) {
                 onChange={(e) => setLayerDepth(Number(e.target.value))}
                 style={sliderStyle}
               />
-              <div className="label-tech" style={{ display: 'flex', justifyContent: 'space-between', marginTop: '8px', fontSize: '0.6rem', color: 'rgba(242,242,242,0.38)' }}>
+              <div className="label-tech" style={{ display: 'flex', justifyContent: 'space-between', marginTop: '8px', fontSize: '0.6rem', color: 'color-mix(in srgb, var(--text-invert) 38%, transparent)' }}>
                 <span>25 mm</span>
                 <span>1200 mm</span>
               </div>
@@ -161,7 +161,7 @@ export default function SpecCalculator({ openRfqModal }) {
 
             {/* Ball size */}
             <div style={{ marginBottom: '28px' }}>
-              <label className="label-tech" style={{ color: 'rgba(242,242,242,0.6)', display: 'block', marginBottom: '12px' }}>
+              <label className="label-tech" style={{ color: 'color-mix(in srgb, var(--text-invert) 60%, transparent)', display: 'block', marginBottom: '12px' }}>
                 Ball diameter
               </label>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
@@ -178,8 +178,8 @@ export default function SpecCalculator({ openRfqModal }) {
                         borderRadius: 'var(--radius-sm)',
                         cursor: 'pointer',
                         background: active ? 'var(--sand-200)' : 'transparent',
-                        color: active ? 'var(--clay-800)' : 'rgba(242,242,242,0.7)',
-                        border: `1px solid ${active ? 'var(--sand-200)' : 'rgba(212,214,220,0.22)'}`,
+                        color: active ? 'var(--clay-800)' : 'color-mix(in srgb, var(--text-invert) 70%, transparent)',
+                        border: `1px solid ${active ? 'var(--sand-200)' : 'color-mix(in srgb, var(--sand-300) 22%, transparent)'}`,
                         transition: 'var(--transition-fast)'
                       }}
                     >
@@ -192,7 +192,7 @@ export default function SpecCalculator({ openRfqModal }) {
 
             {/* Grade */}
             <div>
-              <label className="label-tech" style={{ color: 'rgba(242,242,242,0.6)', display: 'block', marginBottom: '12px' }}>
+              <label className="label-tech" style={{ color: 'color-mix(in srgb, var(--text-invert) 60%, transparent)', display: 'block', marginBottom: '12px' }}>
                 Media grade
               </label>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -211,9 +211,9 @@ export default function SpecCalculator({ openRfqModal }) {
                         borderRadius: 'var(--radius-sm)',
                         cursor: 'pointer',
                         textAlign: 'left',
-                        background: active ? 'rgba(212,214,220,0.14)' : 'transparent',
-                        border: `1px solid ${active ? 'var(--sand-400)' : 'rgba(212,214,220,0.16)'}`,
-                        color: active ? 'var(--sand-100)' : 'rgba(242,242,242,0.62)',
+                        background: active ? 'color-mix(in srgb, var(--sand-300) 14%, transparent)' : 'transparent',
+                        border: `1px solid ${active ? 'var(--sand-400)' : 'color-mix(in srgb, var(--sand-300) 16%, transparent)'}`,
+                        color: active ? 'var(--sand-100)' : 'color-mix(in srgb, var(--text-invert) 62%, transparent)',
                         transition: 'var(--transition-fast)'
                       }}
                     >
@@ -294,8 +294,8 @@ export default function SpecCalculator({ openRfqModal }) {
                   padding: '12px 14px',
                   borderRadius: 'var(--radius-sm)',
                   marginBottom: '22px',
-                  background: result.depthOk ? 'rgba(95,112,82,0.09)' : 'rgba(141,58,34,0.10)',
-                  border: `1px solid ${result.depthOk ? 'rgba(95,112,82,0.28)' : 'rgba(141,58,34,0.32)'}`
+                  background: result.depthOk ? 'color-mix(in srgb, var(--cat-2) 9%, transparent)' : 'color-mix(in srgb, var(--cat-1) 10%, transparent)',
+                  border: `1px solid ${result.depthOk ? 'color-mix(in srgb, var(--cat-2) 28%, transparent)' : 'color-mix(in srgb, var(--cat-1) 32%, transparent)'}`
                 }}
               >
                 <Info

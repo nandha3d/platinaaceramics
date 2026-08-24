@@ -69,7 +69,7 @@ export default function ProductsSection({ onSelectProduct, searchQuery, setSearc
           alignItems: 'center',
           justifyContent: 'space-between',
           gap: '16px',
-          boxShadow: '0 4px 14px rgba(1, 20, 49, 0.03)'
+          boxShadow: '0 4px 14px color-mix(in srgb, var(--clay-800) 3%, transparent)'
         }}>
           
           {/* Category Tabs */}
@@ -87,7 +87,7 @@ export default function ProductsSection({ onSelectProduct, searchQuery, setSearc
                   fontSize: '0.84rem',
                   fontWeight: 600,
                   cursor: 'pointer',
-                  boxShadow: activeCategory === cat.id ? '0 4px 12px rgba(10, 32, 80, 0.2)' : '0 2px 6px rgba(1, 20, 49, 0.03)',
+                  boxShadow: activeCategory === cat.id ? '0 4px 12px color-mix(in srgb, var(--clay-600) 20%, transparent)' : '0 2px 6px color-mix(in srgb, var(--clay-800) 3%, transparent)',
                   transition: 'var(--transition-fast)'
                 }}
               >
@@ -105,7 +105,7 @@ export default function ProductsSection({ onSelectProduct, searchQuery, setSearc
                   fontSize: '0.84rem',
                   fontWeight: 700,
                   cursor: 'pointer',
-                  boxShadow: '0 4px 12px rgba(10, 32, 80, 0.3)',
+                  boxShadow: '0 4px 12px color-mix(in srgb, var(--clay-600) 30%, transparent)',
                   transition: 'var(--transition-fast)',
                   display: 'flex',
                   alignItems: 'center',

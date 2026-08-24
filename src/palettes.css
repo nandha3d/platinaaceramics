@@ -71,6 +71,26 @@
   --shadow-md: 0 12px 32px -12px rgba(1, 20, 49, 0.18);
   --shadow-lg: 0 28px 60px -24px rgba(1, 20, 49, 0.30);
   --shadow-glow: 0 12px 32px -12px rgba(144, 1, 0, 0.35);
+
+  /* Categorical accents, derived from this palette's own hue. Used wherever
+     the UI needs several colours that mean "different kind of thing".
+     Generated — see scratchpad/gen_cat_tokens.js. All >= 4.5:1 on the card. */
+  --cat-1: #BE2E2D;
+  --cat-2: #1F844F;
+  --cat-3: #2D79BE;
+  --cat-4: #74781C;
+  --cat-5: #9D2DBE;
+  --on-accent: #FFFFFF;
+
+  /* The older accent-* names alias the ramp above, so every existing
+     var(--accent-blue) / --accent-gold / --accent-emerald / --accent-rust in
+     the codebase follows the palette instead of staying frozen at the single
+     hard-coded set that used to live only in :root. */
+  --accent-rust:    var(--cat-1);
+  --accent-emerald: var(--cat-2);
+  --accent-blue:    var(--cat-3);
+  --accent-steel:   var(--cat-3);
+  --accent-gold:    var(--cat-4);
 }
 
 /* Minimal Lilac */
@@ -125,6 +145,26 @@
   --shadow-md: 0 12px 32px -12px rgba(43, 46, 61, 0.18);
   --shadow-lg: 0 28px 60px -24px rgba(43, 46, 61, 0.30);
   --shadow-glow: 0 12px 32px -12px rgba(127, 81, 176, 0.35);
+
+  /* Categorical accents, derived from this palette's own hue. Used wherever
+     the UI needs several colours that mean "different kind of thing".
+     Generated — see scratchpad/gen_cat_tokens.js. All >= 4.5:1 on the card. */
+  --cat-1: #7449A1;
+  --cat-2: #7B7738;
+  --cat-3: #40853D;
+  --cat-4: #A14974;
+  --cat-5: #417C90;
+  --on-accent: #FFFFFF;
+
+  /* The older accent-* names alias the ramp above, so every existing
+     var(--accent-blue) / --accent-gold / --accent-emerald / --accent-rust in
+     the codebase follows the palette instead of staying frozen at the single
+     hard-coded set that used to live only in :root. */
+  --accent-rust:    var(--cat-1);
+  --accent-emerald: var(--cat-2);
+  --accent-blue:    var(--cat-3);
+  --accent-steel:   var(--cat-3);
+  --accent-gold:    var(--cat-4);
 }
 
 /* Graphite Amber */
@@ -179,6 +219,26 @@
   --shadow-md: 0 12px 32px -12px rgba(28, 31, 38, 0.18);
   --shadow-lg: 0 28px 60px -24px rgba(28, 31, 38, 0.30);
   --shadow-glow: 0 12px 32px -12px rgba(149, 90, 10, 0.35);
+
+  /* Categorical accents, derived from this palette's own hue. Used wherever
+     the UI needs several colours that mean "different kind of thing".
+     Generated — see scratchpad/gen_cat_tokens.js. All >= 4.5:1 on the card. */
+  --cat-1: #9D6A25;
+  --cat-2: #1F8084;
+  --cat-3: #332DBE;
+  --cat-4: #47841F;
+  --cat-5: #BE2D8C;
+  --on-accent: #FFFFFF;
+
+  /* The older accent-* names alias the ramp above, so every existing
+     var(--accent-blue) / --accent-gold / --accent-emerald / --accent-rust in
+     the codebase follows the palette instead of staying frozen at the single
+     hard-coded set that used to live only in :root. */
+  --accent-rust:    var(--cat-1);
+  --accent-emerald: var(--cat-2);
+  --accent-blue:    var(--cat-3);
+  --accent-steel:   var(--cat-3);
+  --accent-gold:    var(--cat-4);
 }
 
 /* Kiln Copper */
@@ -233,6 +293,26 @@
   --shadow-md: 0 12px 32px -12px rgba(36, 23, 19, 0.18);
   --shadow-lg: 0 28px 60px -24px rgba(36, 23, 19, 0.30);
   --shadow-glow: 0 12px 32px -12px rgba(164, 80, 28, 0.35);
+
+  /* Categorical accents, derived from this palette's own hue. Used wherever
+     the UI needs several colours that mean "different kind of thing".
+     Generated — see scratchpad/gen_cat_tokens.js. All >= 4.5:1 on the card. */
+  --cat-1: #B25E2A;
+  --cat-2: #1F8475;
+  --cat-3: #2D43BE;
+  --cat-4: #57801E;
+  --cat-5: #BE2DA8;
+  --on-accent: #FFFFFF;
+
+  /* The older accent-* names alias the ramp above, so every existing
+     var(--accent-blue) / --accent-gold / --accent-emerald / --accent-rust in
+     the codebase follows the palette instead of staying frozen at the single
+     hard-coded set that used to live only in :root. */
+  --accent-rust:    var(--cat-1);
+  --accent-emerald: var(--cat-2);
+  --accent-blue:    var(--cat-3);
+  --accent-steel:   var(--cat-3);
+  --accent-gold:    var(--cat-4);
 }
 
 /* Steel Teal */
@@ -287,6 +367,26 @@
   --shadow-md: 0 12px 32px -12px rgba(13, 42, 47, 0.18);
   --shadow-lg: 0 28px 60px -24px rgba(13, 42, 47, 0.30);
   --shadow-glow: 0 12px 32px -12px rgba(13, 115, 114, 0.35);
+
+  /* Categorical accents, derived from this palette's own hue. Used wherever
+     the UI needs several colours that mean "different kind of thing".
+     Generated — see scratchpad/gen_cat_tokens.js. All >= 4.5:1 on the card. */
+  --cat-1: #1E807F;
+  --cat-2: #BE2D7C;
+  --cat-3: #A96328;
+  --cat-4: #302DBE;
+  --cat-5: #38841F;
+  --on-accent: #FFFFFF;
+
+  /* The older accent-* names alias the ramp above, so every existing
+     var(--accent-blue) / --accent-gold / --accent-emerald / --accent-rust in
+     the codebase follows the palette instead of staying frozen at the single
+     hard-coded set that used to live only in :root. */
+  --accent-rust:    var(--cat-1);
+  --accent-emerald: var(--cat-2);
+  --accent-blue:    var(--cat-3);
+  --accent-steel:   var(--cat-3);
+  --accent-gold:    var(--cat-4);
 }
 
 /* Slate Indigo */
@@ -341,6 +441,26 @@
   --shadow-md: 0 12px 32px -12px rgba(24, 29, 54, 0.18);
   --shadow-lg: 0 28px 60px -24px rgba(24, 29, 54, 0.30);
   --shadow-glow: 0 12px 32px -12px rgba(67, 56, 202, 0.35);
+
+  /* Categorical accents, derived from this palette's own hue. Used wherever
+     the UI needs several colours that mean "different kind of thing".
+     Generated — see scratchpad/gen_cat_tokens.js. All >= 4.5:1 on the card. */
+  --cat-1: #3C31B9;
+  --cat-2: #A16B2B;
+  --cat-3: #4E8122;
+  --cat-4: #B931AA;
+  --cat-5: #228172;
+  --on-accent: #FFFFFF;
+
+  /* The older accent-* names alias the ramp above, so every existing
+     var(--accent-blue) / --accent-gold / --accent-emerald / --accent-rust in
+     the codebase follows the palette instead of staying frozen at the single
+     hard-coded set that used to live only in :root. */
+  --accent-rust:    var(--cat-1);
+  --accent-emerald: var(--cat-2);
+  --accent-blue:    var(--cat-3);
+  --accent-steel:   var(--cat-3);
+  --accent-gold:    var(--cat-4);
 }
 
 /* Furnace Olive */
@@ -395,6 +515,26 @@
   --shadow-md: 0 12px 32px -12px rgba(26, 29, 20, 0.18);
   --shadow-lg: 0 28px 60px -24px rgba(26, 29, 20, 0.30);
   --shadow-glow: 0 12px 32px -12px rgba(84, 109, 51, 0.35);
+
+  /* Categorical accents, derived from this palette's own hue. Used wherever
+     the UI needs several colours that mean "different kind of thing".
+     Generated — see scratchpad/gen_cat_tokens.js. All >= 4.5:1 on the card. */
+  --cat-1: #607D3B;
+  --cat-2: #4B53A0;
+  --cat-3: #974BA0;
+  --cat-4: #3C815C;
+  --cat-5: #A05C4B;
+  --on-accent: #FFFFFF;
+
+  /* The older accent-* names alias the ramp above, so every existing
+     var(--accent-blue) / --accent-gold / --accent-emerald / --accent-rust in
+     the codebase follows the palette instead of staying frozen at the single
+     hard-coded set that used to live only in :root. */
+  --accent-rust:    var(--cat-1);
+  --accent-emerald: var(--cat-2);
+  --accent-blue:    var(--cat-3);
+  --accent-steel:   var(--cat-3);
+  --accent-gold:    var(--cat-4);
 }
 
 /* Porcelain Blue */
@@ -449,6 +589,26 @@
   --shadow-md: 0 12px 32px -12px rgba(15, 36, 64, 0.18);
   --shadow-lg: 0 28px 60px -24px rgba(15, 36, 64, 0.30);
   --shadow-glow: 0 12px 32px -12px rgba(29, 95, 191, 0.35);
+
+  /* Categorical accents, derived from this palette's own hue. Used wherever
+     the UI needs several colours that mean "different kind of thing".
+     Generated — see scratchpad/gen_cat_tokens.js. All >= 4.5:1 on the card. */
+  --cat-1: #2D68BE;
+  --cat-2: #BE352D;
+  --cat-3: #72781C;
+  --cat-4: #882DBE;
+  --cat-5: #1F8443;
+  --on-accent: #FFFFFF;
+
+  /* The older accent-* names alias the ramp above, so every existing
+     var(--accent-blue) / --accent-gold / --accent-emerald / --accent-rust in
+     the codebase follows the palette instead of staying frozen at the single
+     hard-coded set that used to live only in :root. */
+  --accent-rust:    var(--cat-1);
+  --accent-emerald: var(--cat-2);
+  --accent-blue:    var(--cat-3);
+  --accent-steel:   var(--cat-3);
+  --accent-gold:    var(--cat-4);
 }
 
 /* Ember Char */
@@ -503,6 +663,26 @@
   --shadow-md: 0 12px 32px -12px rgba(23, 23, 25, 0.18);
   --shadow-lg: 0 28px 60px -24px rgba(23, 23, 25, 0.30);
   --shadow-glow: 0 12px 32px -12px rgba(188, 56, 42, 0.35);
+
+  /* Categorical accents, derived from this palette's own hue. Used wherever
+     the UI needs several colours that mean "different kind of thing".
+     Generated — see scratchpad/gen_cat_tokens.js. All >= 4.5:1 on the card. */
+  --cat-1: #BE3B2D;
+  --cat-2: #1F8458;
+  --cat-3: #2D6CBE;
+  --cat-4: #707C1D;
+  --cat-5: #AA2DBE;
+  --on-accent: #FFFFFF;
+
+  /* The older accent-* names alias the ramp above, so every existing
+     var(--accent-blue) / --accent-gold / --accent-emerald / --accent-rust in
+     the codebase follows the palette instead of staying frozen at the single
+     hard-coded set that used to live only in :root. */
+  --accent-rust:    var(--cat-1);
+  --accent-emerald: var(--cat-2);
+  --accent-blue:    var(--cat-3);
+  --accent-steel:   var(--cat-3);
+  --accent-gold:    var(--cat-4);
 }
 
 /* Forest Brass */
@@ -557,4 +737,24 @@
   --shadow-md: 0 12px 32px -12px rgba(18, 38, 31, 0.18);
   --shadow-lg: 0 28px 60px -24px rgba(18, 38, 31, 0.30);
   --shadow-glow: 0 12px 32px -12px rgba(126, 99, 28, 0.35);
+
+  /* Categorical accents, derived from this palette's own hue. Used wherever
+     the UI needs several colours that mean "different kind of thing".
+     Generated — see scratchpad/gen_cat_tokens.js. All >= 4.5:1 on the card. */
+  --cat-1: #917222;
+  --cat-2: #237F95;
+  --cat-3: #482DBE;
+  --cat-4: #38841F;
+  --cat-5: #BE2D77;
+  --on-accent: #FFFFFF;
+
+  /* The older accent-* names alias the ramp above, so every existing
+     var(--accent-blue) / --accent-gold / --accent-emerald / --accent-rust in
+     the codebase follows the palette instead of staying frozen at the single
+     hard-coded set that used to live only in :root. */
+  --accent-rust:    var(--cat-1);
+  --accent-emerald: var(--cat-2);
+  --accent-blue:    var(--cat-3);
+  --accent-steel:   var(--cat-3);
+  --accent-gold:    var(--cat-4);
 }

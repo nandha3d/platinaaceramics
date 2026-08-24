@@ -44,8 +44,8 @@
   --primary-red: #900100;
   --primary-red-hover: #B60100;
   --primary-red-dark: #810100;
-  --primary-red-glow: rgba(144, 1, 0, 0.22);
-  --primary-red-light: rgba(144, 1, 0, 0.09);
+  --primary-red-glow: color-mix(in srgb, var(--brand-red) 22%, transparent);
+  --primary-red-light: color-mix(in srgb, var(--brand-red) 9%, transparent);
 
   /* ---- Surfaces ---- */
   --bg-main: #F2F2F2;
@@ -55,9 +55,9 @@
   --bg-invert: #011431;
   --surface-card: #FFFFFF;
 
-  --border-light: rgba(1, 20, 49, 0.12);
-  --border-mid: rgba(1, 20, 49, 0.20);
-  --border-glow: rgba(144, 1, 0, 0.38);
+  --border-light: color-mix(in srgb, var(--clay-800) 12%, transparent);
+  --border-mid: color-mix(in srgb, var(--clay-800) 20%, transparent);
+  --border-glow: color-mix(in srgb, var(--brand-red) 38%, transparent);
 
   /* ---- Text. Every value below clears WCAG AA (4.5:1) against --bg-main,
          --surface-card and --bg-surface-2. Check before changing. ---- */
@@ -74,6 +74,25 @@
   --accent-rust: #8D3A22;
   --accent-steel: #41566E;
 
+  /* Categorical accents — the default (Platinaa navy) set. Each palette in
+     palettes.css overrides these, so anything using them follows the theme. */
+  --cat-1: #BE2E2D;
+  --cat-2: #1F844F;
+  --cat-3: #2D79BE;
+  --cat-4: #74781C;
+  --cat-5: #9D2DBE;
+  --on-accent: #FFFFFF;
+
+  /* The older accent-* names alias the ramp above, so every existing
+     var(--accent-blue) / --accent-gold / --accent-emerald / --accent-rust in
+     the codebase follows the palette instead of staying frozen at the single
+     hard-coded set that used to live only in :root. */
+  --accent-rust:    var(--cat-1);
+  --accent-emerald: var(--cat-2);
+  --accent-blue:    var(--cat-3);
+  --accent-steel:   var(--cat-3);
+  --accent-gold:    var(--cat-4);
+
   --radius-sm: 4px;
   --radius-md: 6px;
   --radius-lg: 10px;
@@ -88,10 +107,10 @@
   --text-base: 0.88rem; --text-md: 0.96rem; --text-lg: 1.10rem;
   --text-xl: 1.32rem; --text-2xl: 1.80rem;
 
-  --shadow-sm: 0 1px 2px rgba(1, 20, 49, 0.06);
-  --shadow-md: 0 12px 32px -12px rgba(1, 20, 49, 0.18);
-  --shadow-lg: 0 28px 60px -24px rgba(1, 20, 49, 0.30);
-  --shadow-glow: 0 12px 32px -12px rgba(144, 1, 0, 0.35);
+  --shadow-sm: 0 1px 2px color-mix(in srgb, var(--clay-800) 6%, transparent);
+  --shadow-md: 0 12px 32px -12px color-mix(in srgb, var(--clay-800) 18%, transparent);
+  --shadow-lg: 0 28px 60px -24px color-mix(in srgb, var(--clay-800) 30%, transparent);
+  --shadow-glow: 0 12px 32px -12px color-mix(in srgb, var(--brand-red) 35%, transparent);
 
   --transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -187,9 +206,9 @@ h1, h2, h3, h4, .font-display {
   background-color: var(--bg-main);
   background-image:
     radial-gradient(circle at 12% 8%, rgba(134, 140, 153, 0.16) 0%, transparent 42%),
-    radial-gradient(circle at 88% 92%, rgba(144, 1, 0, 0.05) 0%, transparent 48%),
-    linear-gradient(to right, rgba(1, 20, 49, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(1, 20, 49, 0.035) 1px, transparent 1px);
+    radial-gradient(circle at 88% 92%, color-mix(in srgb, var(--brand-red) 5%, transparent) 0%, transparent 48%),
+    linear-gradient(to right, color-mix(in srgb, var(--clay-800) 3.5%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--clay-800) 3.5%, transparent) 1px, transparent 1px);
   background-size: 100% 100%, 100% 100%, 64px 64px, 64px 64px;
 }
 
@@ -279,7 +298,7 @@ h1, h2, h3, h4, .font-display {
   background: var(--brand-red-hover);
   border-color: var(--brand-red-hover);
   transform: translateY(-1px);
-  box-shadow: 0 12px 28px -10px rgba(144, 1, 0, 0.45);
+  box-shadow: 0 12px 28px -10px color-mix(in srgb, var(--brand-red) 45%, transparent);
 }
 
 .btn-secondary {
@@ -312,7 +331,7 @@ h1, h2, h3, h4, .font-display {
 .badge-red {
   background: var(--primary-red-light);
   color: var(--brand-red);
-  border: 1px solid rgba(144, 1, 0, 0.26);
+  border: 1px solid color-mix(in srgb, var(--brand-red) 26%, transparent);
   padding: 5px 12px;
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
@@ -518,7 +537,7 @@ h1, h2, h3, h4, .font-display {
   padding: 5px 10px;
   border-radius: 999px;
   background: rgba(0, 0, 0, 0.55);
-  color: #ffffff;
+  color: var(--on-accent);
   backdrop-filter: blur(6px);
 }
 
@@ -570,25 +589,29 @@ h1, h2, h3, h4, .font-display {
   border: 1px solid var(--border-light);
   white-space: nowrap;
 }
-/* Per-type pill hues. These say what the figure IS, so they are fixed rather
-   than derived from the brand accent — under a palette swap that would collapse
-   all three to one colour and lose the distinction. */
+/* Per-type pill hues, drawn from the palette's categorical ramp so the three
+   stay distinguishable from each other AND follow the active theme. These were
+   fixed hexes, on the reasoning that a pill's colour encodes what the figure IS
+   and so shouldn't move — but that froze three chips mid-page while everything
+   around them recoloured, which just looked broken. The ramp solves both: the
+   hues stay distinct from one another because they are generated at spread hue
+   offsets, and they still track the theme. */
 .pc-pill--grade {
-  background: color-mix(in srgb, #2E5FA3 12%, #ffffff);
-  color: #24487A;
-  border-color: color-mix(in srgb, #2E5FA3 30%, #ffffff);
+  background: color-mix(in srgb, var(--cat-3) 12%, var(--surface-card));
+  color: var(--cat-3);
+  border-color: color-mix(in srgb, var(--cat-3) 30%, var(--surface-card));
   font-weight: 600;
 }
 .pc-pill--density {
-  background: color-mix(in srgb, #1F8A70 12%, #ffffff);
-  color: #16624F;
-  border-color: color-mix(in srgb, #1F8A70 30%, #ffffff);
+  background: color-mix(in srgb, var(--cat-2) 12%, var(--surface-card));
+  color: var(--cat-2);
+  border-color: color-mix(in srgb, var(--cat-2) 30%, var(--surface-card));
   font-weight: 600;
 }
 .pc-pill--acid {
-  background: color-mix(in srgb, #B7791F 13%, #ffffff);
-  color: #7C5210;
-  border-color: color-mix(in srgb, #B7791F 32%, #ffffff);
+  background: color-mix(in srgb, var(--cat-4) 13%, var(--surface-card));
+  color: var(--cat-4);
+  border-color: color-mix(in srgb, var(--cat-4) 32%, var(--surface-card));
   font-weight: 600;
 }
 
@@ -614,7 +637,7 @@ h1, h2, h3, h4, .font-display {
   gap: 7px;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
-.pc-btn--primary { background: var(--brand-red); color: #ffffff; }
+.pc-btn--primary { background: var(--brand-red); color: var(--on-accent); }
 .pc-btn--primary:hover { background: var(--brand-red-hover); }
 .pc-btn--ghost { background: var(--surface-card); color: var(--text-muted); }
 .pc-btn--ghost:hover { background: var(--bg-surface-2); color: var(--text-bright); }
@@ -662,7 +685,7 @@ h1, h2, h3, h4, .font-display {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: color-mix(in srgb, var(--tile-hue) 13%, #ffffff);
+  background: color-mix(in srgb, var(--tile-hue) 13%, var(--surface-card));
   color: var(--tile-hue);
 }
 .prop-tile-value {
@@ -814,8 +837,8 @@ h1, h2, h3, h4, .font-display {
   height: 24px;
   border-radius: 50%;
   border: none;
-  background: rgba(255, 255, 255, 0.18);
-  color: #ffffff;
+  background: color-mix(in srgb, var(--on-accent) 18%, transparent);
+  color: var(--on-accent);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -881,9 +904,9 @@ h1, h2, h3, h4, .font-display {
 .feat-disc {
   width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  background: color-mix(in srgb, var(--tile-hue) 13%, #ffffff);
+  background: color-mix(in srgb, var(--tile-hue) 13%, var(--surface-card));
   color: var(--tile-hue);
-  border: 2px solid color-mix(in srgb, var(--tile-hue) 30%, #ffffff);
+  border: 2px solid color-mix(in srgb, var(--tile-hue) 30%, var(--surface-card));
   transition: transform 0.28s var(--ease-out);
 }
 .feat-card:hover .feat-disc { transform: scale(1.07); }
@@ -946,7 +969,7 @@ h1, h2, h3, h4, .font-display {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(ellipse at 22% 0%, rgba(255,255,255,0.16) 0%, transparent 58%);
+  background: radial-gradient(ellipse at 22% 0%, color-mix(in srgb, var(--on-accent) 16%, transparent) 0%, transparent 58%);
 }
 .stat-band > * { position: relative; z-index: 1; }
 
@@ -1070,3 +1093,314 @@ h1, h2, h3, h4, .font-display {
   margin: 0;
   max-width: 92ch;
 }
+
+/* ---------------------------------------------------------------------------
+   Contact channels — squared datasheet rows, not soft tinted cards.
+   --tile-hue arrives as a palette token so each channel follows the theme.
+   --------------------------------------------------------------------------- */
+.contact-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: 18px;
+  padding: 22px 22px 22px 20px;
+  background: var(--bg-main);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition: border-color 0.24s var(--ease-out), box-shadow 0.24s var(--ease-out);
+}
+/* Accent edge, drawn as a pseudo-element so it can grow on hover without
+   shifting the content the way an animated border-width would. */
+.contact-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--tile-hue);
+  transition: width 0.24s var(--ease-out);
+}
+a.contact-card:hover {
+  border-color: color-mix(in srgb, var(--tile-hue) 40%, transparent);
+  box-shadow: 0 14px 30px -20px color-mix(in srgb, var(--tile-hue) 80%, transparent);
+}
+a.contact-card:hover::before { width: 6px; }
+
+.contact-mark {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-sm);
+  background: var(--tile-hue);
+  color: var(--on-accent);
+}
+
+.contact-body { min-width: 0; }
+
+.contact-eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+.contact-title {
+  display: block;
+  margin: 6px 0 6px;
+  font-size: 1.14rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--text-bright);
+  overflow-wrap: anywhere;
+}
+.contact-line {
+  display: block;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-body);
+}
+.contact-line--ok {
+  color: var(--accent-emerald);
+  font-weight: 600;
+}
+
+/* Parts-list index. Decorative, so it is aria-hidden in the markup. */
+.contact-index {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, var(--text-subtle) 55%, transparent);
+}
+
+@media (max-width: 560px) {
+  .contact-card { gap: 14px; padding: 18px 16px 18px 15px; }
+  .contact-mark { width: 44px; height: 44px; }
+  .contact-title { font-size: 1rem; }
+  .contact-index { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-card, .contact-card::before { transition: none !important; }
+}
+
+/* ---------------------------------------------------------------------------
+   Hero bowl markers — HUD-style callouts.
+
+   Rendered through drei's <Html>, so they are ordinary DOM and pick up theme
+   tokens like everything else. Every colour derives from --brand-red, so the
+   whole HUD recolours with the palette.
+   --------------------------------------------------------------------------- */
+.hero-hotspot {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+/* --- the pulsing target ------------------------------------------------- */
+.hero-hotspot-dot {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--brand-red);
+  box-shadow: 0 0 10px 2px color-mix(in srgb, var(--brand-red) 70%, transparent);
+}
+.hero-hotspot-ring {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--brand-red) 75%, transparent);
+  animation: hud-ping 2.4s var(--ease-out) infinite;
+}
+.hero-hotspot-ring--2 { animation-delay: 1.2s; }
+
+@keyframes hud-ping {
+  0%   { transform: scale(0.6); opacity: 0.9; }
+  70%  { transform: scale(2.4); opacity: 0; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* --- leader line, drawn on hover ---------------------------------------- */
+.hero-leader {
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 1px;
+  transition: width 0.22s var(--ease-out);
+}
+.hero-hotspot--right .hero-leader {
+  left: 100%;
+  background: linear-gradient(to right,
+    color-mix(in srgb, var(--brand-red) 90%, transparent),
+    color-mix(in srgb, var(--brand-red) 25%, transparent));
+}
+.hero-hotspot--left .hero-leader {
+  right: 100%;
+  background: linear-gradient(to left,
+    color-mix(in srgb, var(--brand-red) 90%, transparent),
+    color-mix(in srgb, var(--brand-red) 25%, transparent));
+}
+.hero-hotspot:hover .hero-leader,
+.hero-hotspot:focus-visible .hero-leader { width: 22px; }
+
+/* --- the panel ----------------------------------------------------------- */
+.hero-callout {
+  position: absolute;
+  top: 50%;
+  width: max-content;
+  max-width: 264px;
+  padding: 13px 15px 12px;
+  overflow: hidden;
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--clay-900) 94%, transparent),
+    color-mix(in srgb, var(--clay-800) 92%, transparent));
+  border: 1px solid color-mix(in srgb, var(--brand-red) 55%, transparent);
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--brand-red) 12%, transparent),
+              0 18px 44px -20px color-mix(in srgb, var(--clay-900) 90%, transparent),
+              inset 0 0 26px -10px color-mix(in srgb, var(--brand-red) 55%, transparent);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s var(--ease-out), transform 0.2s var(--ease-out),
+              visibility 0.2s var(--ease-out);
+}
+/* Anchored to the side of the marker rather than above it, so the panel never
+   covers the media it is describing. */
+.hero-hotspot--right .hero-callout {
+  left: calc(100% + 22px);
+  transform-origin: left center;
+  transform: translate(-8px, -50%) scale(0.97);
+}
+.hero-hotspot--left .hero-callout {
+  right: calc(100% + 22px);
+  transform-origin: right center;
+  transform: translate(8px, -50%) scale(0.97);
+}
+.hero-hotspot--right:hover .hero-callout,
+.hero-hotspot--right:focus-visible .hero-callout,
+.hero-hotspot--left:hover .hero-callout,
+.hero-hotspot--left:focus-visible .hero-callout {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -50%) scale(1);
+}
+
+/* Corner brackets — the HUD tell. Drawn as four spans so each corner can carry
+   two edges without extra borders on the panel itself. */
+.hero-callout-corner {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border: 0 solid var(--brand-red);
+}
+.hero-callout-corner--tl { top: 3px; left: 3px; border-top-width: 2px; border-left-width: 2px; }
+.hero-callout-corner--tr { top: 3px; right: 3px; border-top-width: 2px; border-right-width: 2px; }
+.hero-callout-corner--bl { bottom: 3px; left: 3px; border-bottom-width: 2px; border-left-width: 2px; }
+.hero-callout-corner--br { bottom: 3px; right: 3px; border-bottom-width: 2px; border-right-width: 2px; }
+
+/* Scan sweep, running only while the panel is open. */
+.hero-callout-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 34%;
+  top: -34%;
+  background: linear-gradient(180deg,
+    transparent,
+    color-mix(in srgb, var(--brand-red) 22%, transparent),
+    transparent);
+  pointer-events: none;
+}
+.hero-hotspot:hover .hero-callout-scan,
+.hero-hotspot:focus-visible .hero-callout-scan {
+  animation: hud-scan 2.6s linear infinite;
+}
+@keyframes hud-scan {
+  0%   { top: -34%; }
+  100% { top: 100%; }
+}
+
+.hero-callout-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 8px;
+  margin-bottom: 9px;
+  border-bottom: 1px solid color-mix(in srgb, var(--brand-red) 32%, transparent);
+}
+.hero-callout-size {
+  font-family: var(--font-mono);
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--on-accent);
+  text-shadow: 0 0 12px color-mix(in srgb, var(--brand-red) 85%, transparent);
+}
+.hero-callout-tag {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  padding: 2px 6px;
+  border: 1px solid color-mix(in srgb, var(--brand-red) 60%, transparent);
+  color: color-mix(in srgb, var(--on-accent) 82%, transparent);
+}
+.hero-callout-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--on-accent);
+  margin-bottom: 9px;
+}
+
+/* Spec grid. dl/dt/dd so it is a described list to a screen reader, not a
+   decorative pile of spans. */
+.hero-callout-specs {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 12px;
+  margin: 0 0 10px;
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  line-height: 1.5;
+}
+.hero-callout-specs dt {
+  color: color-mix(in srgb, var(--on-accent) 58%, transparent);
+  letter-spacing: 0.04em;
+}
+.hero-callout-specs dd {
+  margin: 0;
+  text-align: right;
+  font-weight: 700;
+  color: color-mix(in srgb, var(--on-accent) 96%, transparent);
+}
+
+.hero-callout-note {
+  font-size: 0.68rem;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--on-accent) 68%, transparent);
+  padding-top: 8px;
+  border-top: 1px solid color-mix(in srgb, var(--on-accent) 14%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-hotspot-ring { animation: none; opacity: 0.5; }
+  .hero-callout, .hero-leader { transition: none; }
+  .hero-hotspot:hover .hero-callout-scan,
+  .hero-hotspot:focus-visible .hero-callout-scan { animation: none; display: none; }
+}
+
