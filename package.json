@@ -2,13 +2,13 @@
   "name": "platinaa-ceramics",
   "private": true,
   "version": "1.0.0",
-  "description": "Platinaa Industrial Ceramics — inert alumina ceramic balls, catalyst bed support media, ceramic tower packing and adsorbents.",
+  "description": "Platinaa Industrial Ceramics â€” inert alumina ceramic balls, catalyst bed support media, ceramic tower packing and adsorbents.",
   "type": "module",
   "scripts": {
     "setup": "npm install",
     "start": "npm install && vite",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/fix-htaccess.mjs",
     "preview": "vite preview",
     "lint": "oxlint"
   },

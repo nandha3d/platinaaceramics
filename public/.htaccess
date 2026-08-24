@@ -7,9 +7,15 @@
   RewriteEngine On
   RewriteBase /
 
-  # Never rewrite requests that map to an actual file or directory.
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
+  # Never rewrite requests that map to an actual FILE.
+  #
+  # Directories are deliberately NOT excluded. /products is both a route and the
+  # name of the product image directory; with `-d` here Apache stopped rewriting,
+  # tried to list the directory, and returned 403 because listings are off. Since
+  # nothing on this site relies on directory listings, letting directories fall
+  # through to the router is correct — /products/foo.jpg is a real file and is
+  # still served directly by the -f rule above.
+  RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
 
   RewriteRule ^ index.html [L]
