@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShieldCheck, Phone, Search, Calculator, Menu, X, ArrowUpRight, ChevronDown, Layers, Sparkles } from 'lucide-react';
+import { ShieldCheck, Phone, Search, Calculator, Menu, X, ArrowUpRight, ChevronDown } from 'lucide-react';
 import { companyInfo } from '../data/companyInfo';
 import { categories } from '../data/products';
 
@@ -60,22 +60,34 @@ export default function Navbar({ openCalculator, openRfqModal, searchQuery, setS
               📍 Namakkal & Erode, Tamil Nadu, India
             </span>
           </div>
-
           <div style={{ display: 'flex', alignItems: 'center', gap: '18px', fontSize: '0.78rem' }}>
-            <a href={`tel:${companyInfo.mobile.replace(/\s+/g, '')}`} style={{ color: 'var(--on-accent)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
-              <Phone size={13} /> {companyInfo.mobile}
+            <a
+              href={`tel:${companyInfo.mobile.replace(/\s+/g, '')}`}
+              aria-label={`Call ${companyInfo.mobile}`}
+              style={{
+                color: 'var(--on-accent)', textDecoration: 'none',
+                display: 'inline-flex', alignItems: 'center', gap: '6px',
+                minHeight: '44px', padding: '4px 6px'
+              }}
+            >
+              <Phone size={13} aria-hidden="true" /> {companyInfo.mobile}
             </a>
             <button 
+              type="button"
               onClick={() => openRfqModal()}
+              aria-label="Get quick quotation request"
               style={{
                 background: 'var(--on-accent)',
                 color: 'var(--brand-red)',
                 border: 'none',
-                padding: '3px 12px',
-                borderRadius: '12px',
-                fontSize: '0.74rem',
+                padding: '6px 14px',
+                borderRadius: '14px',
+                fontSize: '0.78rem',
                 fontWeight: '700',
                 cursor: 'pointer',
+                minHeight: '44px',
+                display: 'inline-flex',
+                alignItems: 'center',
                 boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
               }}
             >
@@ -85,15 +97,15 @@ export default function Navbar({ openCalculator, openRfqModal, searchQuery, setS
         </div>
       </div>
 
-      {/* Main Clean Navigation Bar */}
+      {/* Main sticky navigation header */}
       <header style={{
         position: 'sticky',
         top: 0,
         zIndex: 100,
-        background: scrolled ? 'color-mix(in srgb, var(--on-accent) 95%, transparent)' : 'var(--surface-card)',
+        background: 'var(--surface-card)',
         backdropFilter: 'blur(20px)',
         borderBottom: '1px solid var(--border-light)',
-        boxShadow: scrolled ? '0 4px 20px color-mix(in srgb, var(--clay-800) 5%, transparent)' : 'none',
+        boxShadow: 'none',
         transition: 'var(--transition-fast)'
       }}>
         <div className="container-custom" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '76px' }}>
@@ -102,20 +114,24 @@ export default function Navbar({ openCalculator, openRfqModal, searchQuery, setS
           <Link
             to="/"
             onClick={handleNavClick}
+            aria-label="Platinaa Ceramics — Home"
             style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer', flexShrink: 0, textDecoration: 'none' }}
           >
-            {/* Brand mark, cropped from the Platinaa Ceramics logo */}
+            {/*
+              Full lockup — mark, wordmark and strapline — converted to fast WebP (11 KB).
+            */}
             <img
-              src={`${import.meta.env.BASE_URL}logo-mark.png`}
-              alt="Platinaa Ceramics"
-              width={44}
-              height={44}
-              style={{ width: '44px', height: '44px', objectFit: 'contain', display: 'block', flexShrink: 0 }}
+              src={`${import.meta.env.BASE_URL}logo-full.webp`}
+              alt="Platinum Ceramics — a store of grinding media"
+              width={546}
+              height={396}
+              fetchPriority="high"
+              decoding="async"
+              style={{
+                height: '58px', width: 'auto', objectFit: 'contain',
+                display: 'block', flexShrink: 0
+              }}
             />
-
-            <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1.32rem', letterSpacing: '0.01em', lineHeight: 1.1, color: 'var(--text-bright)', whiteSpace: 'nowrap' }}>
-              Platinaa Ceramics
-            </div>
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -200,13 +216,18 @@ export default function Navbar({ openCalculator, openRfqModal, searchQuery, setS
             {/* Search Toggle */}
             <div style={{ position: 'relative' }}>
               <button
+                type="button"
                 onClick={() => setSearchOpen(!searchOpen)}
+                aria-label={searchOpen ? 'Close search' : 'Open search'}
+                aria-expanded={searchOpen}
                 style={{
                   background: searchOpen ? 'var(--primary-red-light)' : 'var(--bg-surface-1)',
                   border: '1px solid var(--border-light)',
                   color: 'var(--text-bright)',
-                  width: '40px',
-                  height: '40px',
+                  width: '44px',
+                  height: '44px',
+                  minWidth: '44px',
+                  minHeight: '44px',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
@@ -214,7 +235,8 @@ export default function Navbar({ openCalculator, openRfqModal, searchQuery, setS
                   cursor: 'pointer'
                 }}
               >
-                <Search size={18} />
+                <Search size={18} aria-hidden="true" />
+                <span className="sr-only">{searchOpen ? 'Close search input' : 'Open search input'}</span>
               </button>
 
               {searchOpen && (
@@ -232,6 +254,7 @@ export default function Navbar({ openCalculator, openRfqModal, searchQuery, setS
                   <input
                     type="text"
                     placeholder="Search products (e.g. 99% alumina, bed support)..."
+                    aria-label="Search products"
                     value={searchQuery}
                     onChange={(e) => {
                       const value = e.target.value;
@@ -280,17 +303,25 @@ export default function Navbar({ openCalculator, openRfqModal, searchQuery, setS
 
             {/* Mobile Menu Toggle */}
             <button
+              type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="mobile-menu-btn"
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={mobileMenuOpen}
               style={{
                 display: 'none',
                 background: 'none',
                 border: 'none',
                 color: 'var(--text-bright)',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                minWidth: '48px',
+                minHeight: '48px',
+                alignItems: 'center',
+                justifyContent: 'center'
               }}
             >
-              {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+              {mobileMenuOpen ? <X size={26} aria-hidden="true" /> : <Menu size={26} aria-hidden="true" />}
+              <span className="sr-only">{mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}</span>
             </button>
           </div>
         </div>

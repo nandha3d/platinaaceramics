@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { products, categories } from '../data/products';
-import { Search, Filter, Layers, ArrowUpRight, SlidersHorizontal, Check, Eye, Plus, Scale, Sparkles } from 'lucide-react';
+import { Search, Layers, ArrowUpRight, SlidersHorizontal, Eye, Scale } from 'lucide-react';
 
 export default function ProductsSection({ onSelectProduct, searchQuery, setSearchQuery, compareList, toggleCompare, openRfqForProduct, limit, heading }) {
   // The category lives in the URL so a filtered view is shareable and the
@@ -15,7 +15,6 @@ export default function ProductsSection({ onSelectProduct, searchQuery, setSearc
     setSearchParams(next, { replace: true });
   };
   const [sortBy, setSortBy] = useState('featured');
-  const [viewMode, setViewMode] = useState('grid');
 
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
@@ -77,15 +76,19 @@ export default function ProductsSection({ onSelectProduct, searchQuery, setSearc
             {categories.map((cat) => (
               <button
                 key={cat.id}
+                type="button"
                 onClick={() => setActiveCategory(cat.id)}
                 style={{
                   background: activeCategory === cat.id ? 'var(--primary-red)' : 'var(--surface-card)',
                   color: activeCategory === cat.id ? 'var(--surface-card)' : 'var(--text-muted)',
                   border: activeCategory === cat.id ? '1px solid var(--primary-red)' : '1px solid var(--border-light)',
-                  padding: '8px 18px',
+                  padding: '10px 18px',
                   borderRadius: 'var(--radius-full)',
                   fontSize: '0.84rem',
                   fontWeight: 600,
+                  minHeight: '44px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
                   cursor: 'pointer',
                   boxShadow: activeCategory === cat.id ? '0 4px 12px color-mix(in srgb, var(--clay-600) 20%, transparent)' : '0 2px 6px color-mix(in srgb, var(--clay-800) 3%, transparent)',
                   transition: 'var(--transition-fast)'
@@ -125,6 +128,7 @@ export default function ProductsSection({ onSelectProduct, searchQuery, setSearc
               <input
                 type="text"
                 placeholder="Filter by grade / density..."
+                aria-label="Filter products by grade or density"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 style={{
@@ -142,9 +146,12 @@ export default function ProductsSection({ onSelectProduct, searchQuery, setSearc
 
             {/* Sort Select */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <SlidersHorizontal size={14} style={{ color: 'var(--text-subtle)' }} />
+              <label htmlFor="sort-products-select" className="sr-only">Sort products catalogue</label>
+              <SlidersHorizontal size={14} style={{ color: 'var(--text-subtle)' }} aria-hidden="true" />
               <select
+                id="sort-products-select"
                 value={sortBy}
+                aria-label="Sort products catalogue"
                 onChange={(e) => setSortBy(e.target.value)}
                 style={{
                   background: 'var(--surface-card)',

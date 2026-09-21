@@ -31,9 +31,9 @@ export default function AboutSection() {
               
               <div style={{ background: 'var(--surface-card)', padding: '18px 20px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)', boxShadow: '0 4px 12px color-mix(in srgb, var(--clay-800) 3%, transparent)' }}>
                 <Microscope size={22} style={{ color: 'var(--primary-red)', marginBottom: '8px' }} />
-                <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-bright)', marginBottom: '4px' }}>
+                <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-bright)', marginBottom: '4px' }}>
                   Microstructural R&D Laboratory
-                </h4>
+                </h3>
                 <p style={{ fontSize: '0.78rem', color: 'var(--text-subtle)' }}>
                   State-of-the-art sintering furnaces & laser particle size analyzer for 100% batch quality assurance.
                 </p>
@@ -41,9 +41,9 @@ export default function AboutSection() {
 
               <div style={{ background: 'var(--surface-card)', padding: '18px 20px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)', boxShadow: '0 4px 12px color-mix(in srgb, var(--clay-800) 3%, transparent)' }}>
                 <Globe2 size={22} style={{ color: 'var(--accent-blue)', marginBottom: '8px' }} />
-                <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-bright)', marginBottom: '4px' }}>
+                <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-bright)', marginBottom: '4px' }}>
                   Pan-India & Export Logistics
-                </h4>
+                </h3>
                 <p style={{ fontSize: '0.78rem', color: 'var(--text-subtle)' }}>
                   Headquartered in Erode & Namakkal, Tamil Nadu, supplying paint & ink leaders across India and overseas.
                 </p>

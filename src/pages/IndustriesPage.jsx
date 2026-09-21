@@ -1,8 +1,12 @@
 import React from 'react';
+import { useSeo } from '../hooks/useSeo';
+import { seoFor } from '../lib/routeMeta';
 import PageHeader from './PageHeader';
 import IndustriesSection from '../components/IndustriesSection';
 
 export default function IndustriesPage() {
+  useSeo(seoFor("/industries"));
+
   return (
     <>
       <PageHeader

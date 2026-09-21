@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://animazon.in/ceramica/sitemap.xml
 Sitemap: https://platinaaceramics.com/sitemap.xml

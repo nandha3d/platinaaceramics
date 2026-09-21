@@ -5,6 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+    <!--
+      Applies the saved palette BEFORE the first paint.
+
+      ThemeSwitcher sets data-palette from an effect, which runs after React has
+      mounted — so the page painted in the default red/navy palette and then
+      swapped, producing a visible flash on every load. Prerendering made it more
+      obvious, because there is now real content painted long before any
+      JavaScript runs.
+
+      This must stay inline and synchronous in <head>: an external or deferred
+      script would run after the first paint and the flash would return. It is
+      small enough that the parser cost is negligible, and every access is
+      guarded because localStorage throws in private mode and when site data is
+      blocked.
+    -->
+    <script>
+      (function () {
+        try {
+          var p = localStorage.getItem('platinaa-palette');
+          if (p && /^[a-z0-9-]{1,32}$/.test(p)) {
+            document.documentElement.setAttribute('data-palette', p);
+          }
+        } catch (e) { /* default palette is already correct */ }
+      })();
+    </script>
+
     <title>Inert Alumina Ceramic Balls & Catalyst Bed Support Balls Manufacturer | Platinaa Ceramics</title>
     <meta
       name="description"
@@ -28,15 +54,31 @@
     <meta property="og:url" content="https://platinaaceramics.com/" />
     <meta property="og:locale" content="en_IN" />
 
+    <!-- Share image. Without this, a link pasted into WhatsApp, LinkedIn or
+         Slack renders as a bare text card, which is most of how a B2B
+         datasheet actually gets passed around. -->
+    <meta property="og:image" content="https://platinaaceramics.com/og-cover.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Graded inert alumina ceramic balls in bed support layers" />
+
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://platinaaceramics.com/og-cover.jpg" />
     <meta name="twitter:title" content="Inert Alumina Ceramic Balls & Catalyst Bed Support Balls" />
     <meta
       name="twitter:description"
       content="Manufacturer of inert alumina ceramic balls, catalyst bed support media, ceramic tower packing and adsorbents."
     />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Critical font preloads: Latin subsets only, resolved via base URL -->
+    <link rel="preload" as="font" type="font/woff2" href="%BASE_URL%fonts/Roboto-400-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="%BASE_URL%fonts/Roboto-700-latin.woff2" crossorigin />
+
+    <!-- LCP Hero Image Preload: fast 14KB AVIF/WebP on mobile, instant LCP; high-res WebP for desktop -->
+    <link rel="preload" as="image" type="image/avif" href="%BASE_URL%hero/products-hero-900.avif" media="(max-width: 820px)" fetchpriority="high" />
+    <link rel="preload" as="image" type="image/webp" href="%BASE_URL%hero/products-hero-900.webp" media="(max-width: 820px)" fetchpriority="high" />
+    <link rel="preload" as="image" type="image/webp" href="%BASE_URL%hero/products-hero-1600.webp" media="(min-width: 821px)" fetchpriority="high" />
+    <link rel="preload" as="image" type="image/webp" href="%BASE_URL%logo-full.webp" fetchpriority="high" />
 
     <script type="application/ld+json">
       {

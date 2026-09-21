@@ -1,11 +1,13 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
 
-createRoot(document.getElementById('root')).render(
+const container = document.getElementById('root')
+
+const tree = (
   <StrictMode>
     <ErrorBoundary label="app">
       {/*
@@ -18,5 +20,22 @@ createRoot(document.getElementById('root')).render(
         <App />
       </BrowserRouter>
     </ErrorBoundary>
-  </StrictMode>,
+  </StrictMode>
 )
+
+/*
+ * Hydrate the prerendered markup rather than replacing it.
+ *
+ * The build writes real HTML for every route. createRoot would throw all of it
+ * away and re-render from scratch, which wastes the work and makes the page
+ * visibly blink as the server markup is swapped for identical client markup.
+ * hydrateRoot adopts what is already there and only attaches behaviour.
+ *
+ * The emptiness check is the fallback for `vite dev`, where index.html still
+ * ships an empty root and there is nothing to hydrate.
+ */
+if (container.firstChild) {
+  hydrateRoot(container, tree)
+} else {
+  createRoot(container).render(tree)
+}

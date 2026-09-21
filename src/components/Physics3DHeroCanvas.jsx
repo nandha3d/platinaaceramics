@@ -6,6 +6,7 @@ import ErrorBoundary from './ErrorBoundary';
 import { EffectComposer, N8AO, ToneMapping } from '@react-three/postprocessing';
 import { ToneMappingMode } from 'postprocessing';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
+import settledBallsData from '../data/settledBalls.json';
 
 // ──────────────────────────────────────────────────────────────
 // PBR Ceramic — Whiter and brighter
@@ -238,13 +239,8 @@ function makeFlowerTexture(tint) {
 }
 
 // ──────────────────────────────────────────────────────────────
-// One bowl's worth of balls with self-contained physics
+// Lighting & Environment
 // ──────────────────────────────────────────────────────────────
-function BowlBalls({ bowlCenter, bowlInnerR, ballCount, minR, maxR, meshRef, startIdx, allBalls }) {
-  // This component just initializes ball data into the shared allBalls array
-  // Physics is handled centrally in PhysicsScene
-  return null;
-}
 
 /**
  * FALLBACK light rig, used only when the HDRI fails to load.
@@ -383,6 +379,9 @@ function SceneEnvironment({
       return undefined;
     }
 
+    // Light the scene immediately on frame 1 so materials and reflections display with zero delay
+    applyStudioRig('instant-boot');
+
     const url = import.meta.env.BASE_URL + file;
     onStat?.('env', 'loading hdri…');
 
@@ -392,8 +391,10 @@ function SceneEnvironment({
         if (cancelled) { hdr.dispose(); return; }
         try {
           hdr.mapping = THREE.EquirectangularReflectionMapping;
+          const oldTarget = target;
           target = pmrem.fromEquirectangular(hdr);
           hdr.dispose();
+          oldTarget?.dispose();
           commit(target.texture, file.replace('hdri/', ''));
         } catch (err) {
           applyStudioRig(err && err.message);
@@ -559,7 +560,7 @@ function ConcreteFloor({ onStat }) {
 
   useEffect(() => {
     let cancelled = false;
-    const url = import.meta.env.BASE_URL + 'concrete.png';
+    const url = import.meta.env.BASE_URL + 'concrete.webp';
     onStat?.('floor', 'loading');
 
     new THREE.TextureLoader().load(
@@ -834,6 +835,10 @@ function settleBallsCached(balls) {
     }
   } catch { /* unreadable storage is a cache miss, nothing more */ }
 
+  if (!cached && Array.isArray(settledBallsData) && settledBallsData.length === balls.length) {
+    cached = settledBallsData;
+  }
+
   if (cached) {
     for (let i = 0; i < balls.length; i++) {
       const b = balls[i];
@@ -949,8 +954,8 @@ function PhysicsScene({ isExploding, onStat }) {
   const dummy = useMemo(() => new THREE.Object3D(), []);
 
 
-  // Build all balls for all 5 bowls
-  const { balls, bowlAssignments } = useMemo(() => {
+  // Build all balls for all 4 bowls
+  const { balls } = useMemo(() => {
     const allBalls = [];
     const assignments = [];
     let idx = 0;
@@ -959,7 +964,6 @@ function PhysicsScene({ isExploding, onStat }) {
       for (let i = 0; i < bowl.count; i++) {
         // Distribute balls in a loose spiral column above their bowl so they fall in beautifully
         const angle = i * 2.39996;
-        const rad = Math.sqrt(i) * 0.15;
         // Use uniform ball size per bowl
         const r = bowl.ballR;
         const vol = (4 / 3) * Math.PI * r * r * r;

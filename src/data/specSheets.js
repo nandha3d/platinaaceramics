@@ -198,6 +198,201 @@ export const specSheets = {
       { label: 'Economical Bed Fill', icon: 'shieldCheck' },
       { label: 'Acid Resistance > 98%', icon: 'molecule' }
     ]
+  },
+
+  // -------------------------------------------------------------------------
+  // Ceramic Fiber Blanket — 1260°C Grade
+  // -------------------------------------------------------------------------
+  'ceramic-fiber-blanket-1260': {
+    kicker: 'Refractory Insulation',
+    strapline: 'Lightweight, flexible insulation blanket for furnaces, boilers and pipe wrap to 1260°C.',
+    benefits: [
+      { label: 'Ultra-Lightweight', icon: 'leaf' },
+      { label: 'Low Thermal Conductivity', icon: 'thermometer' },
+      { label: 'Thermal Shock Resistant', icon: 'shieldCheck' },
+      { label: 'Binder-Free Construction', icon: 'shield' },
+      { label: 'Flexible & Easy to Install', icon: 'recycle' }
+    ]
+  },
+
+  // -------------------------------------------------------------------------
+  // Ceramic Fiber Blanket — 1425°C Zirconia Grade
+  // -------------------------------------------------------------------------
+  'ceramic-fiber-blanket-1425': {
+    kicker: 'Zirconia-Grade Insulation',
+    strapline: 'High-performance zirconia-reinforced blanket for severe-duty service to 1425°C.',
+    benefits: [
+      { label: 'Zirconia-Reinforced Fiber', icon: 'gem' },
+      { label: 'Low Shrinkage at Temperature', icon: 'thermometer' },
+      { label: 'Hot-Face Gas Erosion Resistant', icon: 'shieldCheck' },
+      { label: 'Continuous Use to 1300°C', icon: 'shield' },
+      { label: 'Reduced Energy Consumption', icon: 'leaf' }
+    ]
+  },
+
+  // -------------------------------------------------------------------------
+  // Ceramic Ferrules — Boiler & Heat Exchanger
+  // -------------------------------------------------------------------------
+  'ceramic-ferrules': {
+    kicker: 'Tube Protection',
+    strapline: 'Custom-engineered ceramic sleeves protecting boiler and heat exchanger tubes from erosion and corrosion.',
+    benefits: [
+      { label: 'Custom Tube Engineering', icon: 'factory' },
+      { label: 'Severe Thermal Cycling', icon: 'thermometer' },
+      { label: 'Erosion & Corrosion Resistant', icon: 'shieldCheck' },
+      { label: 'Extended Tube Life', icon: 'shield' },
+      { label: 'Reduced Turnaround Cost', icon: 'recycle' }
+    ]
+  },
+
+  // -------------------------------------------------------------------------
+  // Glass Beads for Extraction & Column Packing
+  // -------------------------------------------------------------------------
+  'glass-beads-extraction': {
+    kicker: 'Column Packing Media',
+    strapline: 'Chemically inert borosilicate glass beads for extraction and column packing duty.',
+    benefits: [
+      { label: 'Total Chemical Inertness', icon: 'shield' },
+      { label: 'Zero Product Adsorption', icon: 'flask' },
+      { label: 'Uniform Sphericity', icon: 'gem' },
+      { label: 'Thermal Stability to 600°C', icon: 'thermometer' },
+      { label: 'Easy Batch Cleaning', icon: 'recycle' }
+    ]
+  },
+
+  // -------------------------------------------------------------------------
+  // Fluid Catalytic Cracking (FCC) Catalyst
+  // -------------------------------------------------------------------------
+  'fcc-catalyst': {
+    kicker: 'Fluid Cracking Media',
+    strapline: 'High-activity microspheroidal cracking catalyst maximizing gasoline and light olefin yields.',
+    benefits: [
+      { label: 'High Microactivity (MAT ≥ 75%)', icon: 'flask' },
+      { label: 'Low Attrition Index (< 1.0)', icon: 'shieldCheck' },
+      { label: 'Vanadium & Nickel Trap', icon: 'shield' },
+      { label: 'Propylene & Octane Maximization', icon: 'gem' },
+      { label: 'Thermal Stability to 800°C', icon: 'thermometer' }
+    ]
+  },
+
+  // -------------------------------------------------------------------------
+  // Hydrocracking Catalyst — Middle Distillates & Diesel
+  // -------------------------------------------------------------------------
+  'hydrocracking-catalyst': {
+    kicker: 'Dual-Function Cracking',
+    strapline: 'Zeolite-ASA hydrocracking catalyst engineered for maximum ultra-clean diesel and jet fuel yields.',
+    benefits: [
+      { label: 'Middle Distillate Selectivity > 80%', icon: 'gem' },
+      { label: 'High Cetane Index (≥ 58)', icon: 'flask' },
+      { label: 'Deep Nitrogen Tolerance', icon: 'shield' },
+      { label: 'Severe-Service Hydrogen Stability', icon: 'shieldCheck' },
+      { label: 'Low Bed Pressure Drop Extrudates', icon: 'recycle' }
+    ]
+  },
+
+  // -------------------------------------------------------------------------
+  // Silicon & Demetallization Guard Catalyst
+  // -------------------------------------------------------------------------
+  'silicon-metal-trap-catalyst': {
+    kicker: 'Poison Scavenger Guard',
+    strapline: 'Macroporous guard catalyst capturing volatile siloxanes and heavy metals to extend hydrotreater cycle length.',
+    benefits: [
+      { label: 'Silicon Capacity ≥ 18 wt% Si', icon: 'shieldCheck' },
+      { label: 'Bimodal Macropore Structure', icon: 'molecule' },
+      { label: 'Anti-Pore Plugging Geometry', icon: 'gem' },
+      { label: 'Prevents Downstream Deactivation', icon: 'shield' },
+      { label: 'Doubles Reactor Run-Length', icon: 'thermometer' }
+    ]
+  },
+
+  // -------------------------------------------------------------------------
+  // Engineered Bed Grading Media — Rings & Medallions
+  // -------------------------------------------------------------------------
+  'engineered-bed-grading-media': {
+    kicker: 'Particulate Intercept',
+    strapline: 'High-voidage fluted rings and medallions preventing top-bed crusting and delta-P spikes.',
+    benefits: [
+      { label: '55–75% Bed Voidage', icon: 'recycle' },
+      { label: '2× Particulate Dirt Capacity', icon: 'shieldCheck' },
+      { label: '60% Slower Delta-P Buildup', icon: 'shield' },
+      { label: 'Fluted & Perforated Geometries', icon: 'gem' },
+      { label: 'Available in Active & Inert Grades', icon: 'flask' }
+    ]
+  },
+
+  // -------------------------------------------------------------------------
+  // High Temperature Shift (HTS) Catalyst
+  // -------------------------------------------------------------------------
+  'ht-shift-catalyst': {
+    kicker: 'Syngas & Hydrogen Shift',
+    strapline: 'Copper-promoted iron-chromium catalyst for high-temperature water-gas shift conversion in hydrogen plants.',
+    benefits: [
+      { label: 'Equilibrium CO Conversion', icon: 'flask' },
+      { label: 'Low Sulfur Formulation', icon: 'shield' },
+      { label: 'Copper Promoted Kinetics', icon: 'gem' },
+      { label: 'High Steam Pellet Strength', icon: 'shieldCheck' },
+      { label: '320–480°C Operating Window', icon: 'thermometer' }
+    ]
+  },
+
+  // -------------------------------------------------------------------------
+  // Continuous Catalytic Reforming (CCR) Platinum Catalyst
+  // -------------------------------------------------------------------------
+  'ccr-reforming-catalyst': {
+    kicker: 'Moving-Bed Reforming',
+    strapline: 'Spherical Pt-Sn bimetallic catalyst for continuous catalytic reforming units producing high-octane reformate.',
+    benefits: [
+      { label: 'High C₅+ Liquid Yield (RON 100–104)', icon: 'gem' },
+      { label: 'Ultra-Low Attrition (< 0.04 wt%/h)', icon: 'shieldCheck' },
+      { label: 'Uniform 1.6–1.8 mm Sphericity', icon: 'recycle' },
+      { label: 'High Hydrogen Selectivity', icon: 'leaf' },
+      { label: 'Multi-Cycle Regenerability', icon: 'shield' }
+    ]
+  },
+
+  // -------------------------------------------------------------------------
+  // Ultra-Low Sulfur Diesel (ULSD) Hydrotreating Catalyst
+  // -------------------------------------------------------------------------
+  'ulsd-hydrotreating-catalyst': {
+    kicker: 'Clean Fuels Hydroprocessing',
+    strapline: 'Type II CoMo/NiMo quadralobe catalyst for deep desulfurization down to <10 ppm Euro VI / BS VI diesel.',
+    benefits: [
+      { label: 'Deep HDS to < 10 ppm Sulfur', icon: 'leaf' },
+      { label: 'Active on Refractory 4,6-DMDBT', icon: 'flask' },
+      { label: 'Quadralobe Low-Diffusion Body', icon: 'gem' },
+      { label: 'Superior HDN & Cetane Boost', icon: 'shieldCheck' },
+      { label: 'High Stability CoMoS / NiMoS', icon: 'shield' }
+    ]
+  },
+
+  // -------------------------------------------------------------------------
+  // Zinc Oxide Desulfurization Catalyst
+  // -------------------------------------------------------------------------
+  'zinc-oxide-desulfurization-catalyst': {
+    kicker: 'Deep Feed Purification',
+    strapline: 'High-surface-area extruded zinc oxide removing trace H₂S down to <0.05 ppmv ahead of reformers.',
+    benefits: [
+      { label: 'High Sulfur Capacity ≥ 35 wt%', icon: 'shieldCheck' },
+      { label: 'Sub-ppm H₂S Outlet (< 0.05 ppmv)', icon: 'shield' },
+      { label: 'High Macroporous Core Utilization', icon: 'molecule' },
+      { label: 'Thermal Stability to 400°C', icon: 'thermometer' },
+      { label: 'Full Downstream Catalyst Protection', icon: 'gem' }
+    ]
+  },
+
+  // -------------------------------------------------------------------------
+  // Steam Reformer Catalyst Tubes & Assemblies
+  // -------------------------------------------------------------------------
+  'reformer-catalyst-tube-assembly': {
+    kicker: 'Furnace Metallurgy',
+    strapline: 'Centrifugally spun-cast Paralloy H39WM micro-alloy reformer tubes for severe furnace service to 1050°C.',
+    benefits: [
+      { label: 'Paralloy H39WM Micro-Alloy', icon: 'factory' },
+      { label: '100,000h Creep Life @ 950°C', icon: 'thermometer' },
+      { label: 'Internally Pull-Bored Surface', icon: 'gem' },
+      { label: 'Carburization & Dusting Resistant', icon: 'shieldCheck' },
+      { label: 'Complete Assemblies with Gaskets', icon: 'shield' }
+    ]
   }
 };
 

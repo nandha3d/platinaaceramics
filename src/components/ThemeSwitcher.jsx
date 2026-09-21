@@ -51,6 +51,7 @@ export default function ThemeSwitcher() {
   return (
     <>
       <button
+        type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-label="Choose colour theme"
@@ -63,7 +64,8 @@ export default function ThemeSwitcher() {
           boxShadow: '0 10px 26px rgba(0,0,0,0.28)'
         }}
       >
-        {open ? <X size={21} /> : <Palette size={21} />}
+        {open ? <X size={21} aria-hidden="true" /> : <Palette size={21} aria-hidden="true" />}
+        <span className="sr-only">{open ? 'Close colour theme picker' : 'Open colour theme picker'}</span>
       </button>
 
       {open && (
@@ -84,7 +86,7 @@ export default function ThemeSwitcher() {
             Colour theme
           </div>
           <p style={{ fontSize: '0.74rem', color: 'var(--text-subtle)', marginBottom: '14px', lineHeight: 1.45 }}>
-            Preview only, saved to this browser. All ten pass WCAG AA contrast.
+            Preview only, saved to this browser. All {PALETTES.length} pass WCAG AA contrast.
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '7px' }}>

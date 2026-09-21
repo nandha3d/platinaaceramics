@@ -70,5 +70,15 @@ export const PALETTES = [
     "deep": "#12261F",
     "accent": "#7E631C",
     "surface": "#F1F3F2"
+  },
+  // TEST ONLY — product card painted in the theme green, buttons amber. Delete
+  // this entry and the [data-palette="greentest"] block in ../palettes.css to
+  // revert. Nothing else references it; the switcher is built from this array.
+  {
+    "key": "greentest",
+    "label": "TEST · Green card + Amber",
+    "deep": "#12452F",
+    "accent": "#EFA02A",
+    "surface": "#F1F3F2"
   }
 ];

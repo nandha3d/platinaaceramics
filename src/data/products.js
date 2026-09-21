@@ -8,7 +8,8 @@ export const categories = [
   { id: "bed-support", name: "Catalyst Bed Support", badge: "Reactor Grade" },
   { id: "tower-packing", name: "Ceramic Tower Packing", badge: "Mass Transfer" },
   { id: "adsorbents", name: "Adsorbents & Desiccants", badge: "Purification" },
-  { id: "catalysts", name: "Catalysts & Guards", badge: "Process Chemistry" }
+  { id: "catalysts", name: "Catalysts & Guards", badge: "Process Chemistry" },
+  { id: "refractory", name: "Refractory & Insulation", badge: "Thermal Protection" }
 ];
 
 export const products = [
@@ -1137,5 +1138,608 @@ export const products = [
     ],
     featured: false,
     is3DModel: "sphere-buff"
+  },
+
+  // ---------------------------------------------------------------------------
+  // REFRACTORY & INSULATION — ceramic blankets, ferrules, glass beads
+  // ---------------------------------------------------------------------------
+  {
+    id: "ceramic-fiber-blanket-1260",
+    image: "products/ceramic-fiber-blanket-1260.jpg",
+    name: "Ceramic Fiber Blanket — 1260°C Grade",
+    category: "refractory",
+    grade: "1260°C (2300°F)",
+    material: "Alumino-Silicate Ceramic Fiber",
+    materialType: "CFB-1260",
+    shortDesc: "High-temperature refractory insulation blanket for furnace linings, boiler insulation and pipe wrap up to 1260°C.",
+    description: "Ceramic Fiber Blanket 1260°C is manufactured from high-purity alumino-silicate fibers by a spun or blown process and mechanically needled without chemical binders. The resulting blanket is lightweight, flexible and easy to cut or wrap around irregular surfaces such as pipes, furnace shells and boiler casings. It delivers excellent thermal insulation with low heat storage, minimising energy loss and reducing fuel consumption. Continuous use temperature reaches 1050–1100°C with a classification temperature of 1260°C and a melting point of approximately 1760°C. Resistant to thermal shock and chemically stable in most environments.",
+    density: "128 kg/m³",
+    bulkDensity: "64 – 160 kg/m³ (density options)",
+    hardness: "Flexible — not applicable",
+    waterAbsorption: "Negligible (non-hygroscopic)",
+    acidResistance: "Stable (except HF & H₃PO₄)",
+    alkaliResistance: "Resistant to mild alkalis",
+    crushStrength: "Tensile ≥ 0.04 MPa",
+    maxTemp: "1260 °C",
+    voidage: "Thermal conductivity 0.08 W/m·K at 400°C",
+    sizes: "25, 50 mm thick × 610 mm wide × 7200 mm roll",
+    standard: "ASTM C892 / IS 9398",
+    color: "#F5F0E0",
+    colorName: "Fiber White",
+    chemicalComposition: [
+      { element: "Al₂O₃", value: "43 – 47%" },
+      { element: "SiO₂", value: "53 – 57%" },
+      { element: "Fe₂O₃", value: "< 1.0%" },
+      { element: "Na₂O + K₂O", value: "< 0.5%" }
+    ],
+    applications: [
+      "Furnace & kiln hot-face and backup lining",
+      "Boiler and HRSG insulation",
+      "Reformer and heater pipe wrap",
+      "Expansion joint seals",
+      "Fire protection and thermal barriers",
+      "Power generation turbine insulation"
+    ],
+    highlights: [
+      "Lightweight — reduces structural load on furnace shells",
+      "Low thermal conductivity — minimises heat loss",
+      "Excellent thermal shock resistance",
+      "Binder-free — no organic emissions on first heat-up"
+    ],
+    featured: false,
+    is3DModel: null
+  },
+  {
+    id: "ceramic-fiber-blanket-1425",
+    image: "products/ceramic-fiber-blanket-1425.jpg",
+    name: "Ceramic Fiber Blanket — 1425°C Zirconia Grade",
+    category: "refractory",
+    grade: "1425°C (2600°F)",
+    material: "Zirconia Alumino-Silicate Ceramic Fiber",
+    materialType: "CFB-1425",
+    shortDesc: "High-performance zirconia-grade refractory insulation blanket for severe-duty furnace linings and fired heaters to 1425°C.",
+    description: "The 1425°C Zirconia-grade Ceramic Fiber Blanket incorporates 13–18% ZrO₂ into the alumino-silicate fiber matrix, raising the classification temperature to 1425°C and the continuous use limit to approximately 1300°C. The zirconia addition improves structural integrity at temperature, reduces long-term shrinkage and lowers thermal conductivity at elevated service compared to the standard 1260°C grade. At 128 kg/m³ density, it delivers superior resistance to gas-flow erosion in hot-face applications and is the standard upgrade for fired heaters, reformers, ladle covers and high-temperature kiln linings where the standard grade is at its limit.",
+    density: "128 kg/m³",
+    bulkDensity: "96 – 160 kg/m³ (density options)",
+    hardness: "Flexible — not applicable",
+    waterAbsorption: "Negligible (non-hygroscopic)",
+    acidResistance: "Stable (except HF & H₃PO₄)",
+    alkaliResistance: "Resistant to mild alkalis",
+    crushStrength: "Tensile ≥ 60 kPa (25mm)",
+    maxTemp: "1425 °C",
+    voidage: "Thermal conductivity 0.10 W/m·K at 600°C",
+    sizes: "25, 50 mm thick × 610 mm wide × 7200 mm roll",
+    standard: "ASTM C892 / IS 9398",
+    color: "#EDE6D0",
+    colorName: "Zirconia White",
+    chemicalComposition: [
+      { element: "Al₂O₃", value: "32 – 37%" },
+      { element: "SiO₂", value: "44 – 52%" },
+      { element: "ZrO₂", value: "13 – 18%" },
+      { element: "Fe₂O₃", value: "< 0.5%" }
+    ],
+    applications: [
+      "Fired heater and reformer hot-face lining",
+      "Ladle covers and steel industry insulation",
+      "High-temperature kiln and furnace linings",
+      "Expansion joint seals at elevated temperature",
+      "Petrochemical process heater insulation",
+      "Backup insulation behind refractory brick"
+    ],
+    highlights: [
+      "Zirconia-reinforced — 165°C above standard grade",
+      "Lower shrinkage and higher stability at temperature",
+      "128 kg/m³ density resists gas-flow erosion",
+      "Continuous use to 1300°C in hot-face duty"
+    ],
+    featured: false,
+    is3DModel: null
+  },
+  {
+    id: "ceramic-ferrules",
+    image: "products/ceramic-ferrules.jpg",
+    name: "Ceramic Ferrules — Boiler & Heat Exchanger",
+    category: "refractory",
+    grade: "60 – 80% Al₂O₃",
+    material: "High-Alumina Technical Ceramic",
+    materialType: "CF",
+    shortDesc: "Precision ceramic tube sleeves protecting boiler tubes and heat exchanger tube-sheets from high heat, erosion and corrosion.",
+    description: "Ceramic Ferrules are precision-engineered cylindrical sleeves inserted into tube ends of boilers, waste heat recovery units and heat exchangers. They protect the tube-to-tubesheet weld zone and the first section of tube from high-temperature erosion, corrosion and thermal fatigue caused by hot, turbulent flue gases. Manufactured from high-alumina ceramic bodies (60–80% Al₂O₃), they withstand continuous service to 1400°C and severe thermal cycling. Custom-engineered to the specific tube ID, wall thickness and operating conditions of each unit.",
+    density: "2.8 – 3.4 g/cm³",
+    bulkDensity: "Not applicable (individual pieces)",
+    hardness: "≥ 8.0 Mohs",
+    waterAbsorption: "< 0.5%",
+    acidResistance: "≥ 98%",
+    alkaliResistance: "≥ 85%",
+    crushStrength: "≥ 200 MPa compressive",
+    maxTemp: "1400 °C",
+    voidage: "Not applicable",
+    sizes: "OD 22.80, 26.75, 33, 40 mm · Lengths 150, 175, 186, 203 mm",
+    standard: "ISO 13918 / Custom engineered",
+    color: "#F0EBE0",
+    colorName: "Alumina Ivory",
+    chemicalComposition: [
+      { element: "Al₂O₃", value: "60 – 80%" },
+      { element: "SiO₂", value: "15 – 30%" },
+      { element: "Fe₂O₃", value: "< 1.0%" },
+      { element: "Others", value: "Balance" }
+    ],
+    applications: [
+      "Boiler tube-end protection",
+      "Waste heat recovery unit ferrules",
+      "Heat exchanger tube-sheet protection",
+      "Claus unit (SRU) boiler tube ferrules",
+      "HRSG tube protection",
+      "Stud welding arc shielding ferrules"
+    ],
+    highlights: [
+      "Custom-engineered to exact tube dimensions",
+      "Withstands severe thermal cycling to 1400°C",
+      "Protects against hot-gas erosion and corrosion",
+      "Extends tube life and reduces maintenance shutdowns"
+    ],
+    featured: false,
+    is3DModel: null
+  },
+  {
+    id: "glass-beads-extraction",
+    image: "products/glass-beads-extraction.jpg",
+    name: "Glass Beads for Extraction & Column Packing",
+    category: "refractory",
+    grade: "Borosilicate 3.3",
+    material: "Borosilicate Glass",
+    materialType: "GB",
+    shortDesc: "Chemically inert borosilicate glass beads for extraction column packing, bed support and heat transfer media.",
+    description: "Glass Beads for Extraction are manufactured from Borosilicate 3.3 glass, providing exceptional chemical inertness and thermal stability for column packing and extraction service. Their uniform spherical shape delivers consistent bed voidage and predictable pressure drop, while the smooth non-porous surface prevents product adsorption and enables complete cleaning between batches. Suitable for liquid–liquid extraction columns, distillation bed support, solvent recovery towers and laboratory-to-pilot-scale packed columns.",
+    density: "2.4 – 2.6 g/cm³",
+    bulkDensity: "1.4 – 1.6 g/cm³",
+    hardness: "5.5 – 7.0 Mohs",
+    waterAbsorption: "Zero (non-porous)",
+    acidResistance: "Excellent — inert to all acids except HF",
+    alkaliResistance: "Good — resistant to mild alkalis",
+    crushStrength: "Size dependent",
+    maxTemp: "600 °C",
+    voidage: "38 – 42%",
+    sizes: "3, 4, 5, 6 mm spheres",
+    standard: "Borosilicate 3.3 / ISO 3585",
+    color: "#E8E8E8",
+    colorName: "Clear Glass",
+    chemicalComposition: [
+      { element: "SiO₂", value: "80.6%" },
+      { element: "B₂O₃", value: "12.6%" },
+      { element: "Na₂O", value: "4.2%" },
+      { element: "Al₂O₃", value: "2.2%" },
+      { element: "Others", value: "0.4%" }
+    ],
+    applications: [
+      "Liquid–liquid extraction columns",
+      "Distillation and rectification bed support",
+      "Solvent recovery tower packing",
+      "Laboratory and pilot-scale packed columns",
+      "Heat transfer media",
+      "Chemical reactor bed dispersion"
+    ],
+    highlights: [
+      "Chemically inert to acids, alkalis and solvents",
+      "Non-porous — zero product adsorption",
+      "Uniform sphericity for consistent pressure drop",
+      "Easy cleaning between product batches"
+    ],
+    featured: false,
+    is3DModel: null
+  },
+
+  // ---------------------------------------------------------------------------
+  // PETROLEUM REFINING CATALYSTS, GUARDS & REACTOR SPECIALTIES
+  // Sourced directly from refinery procurement list (3-page catalog specification)
+  // ---------------------------------------------------------------------------
+  {
+    id: "fcc-catalyst",
+    image: "products/fcc-catalyst.jpg",
+    name: "Fluid Catalytic Cracking (FCC) Catalyst",
+    category: "catalysts",
+    grade: "High-Zeolite Y / USY Matrix",
+    material: "Ultra-Stable Y Zeolite on Silica-Alumina Matrix",
+    materialType: "FCC-CAT",
+    shortDesc: "High-activity microspheroidal cracking catalyst engineered for maximum gasoline, propylene and middle distillate yields from heavy vacuum gas oils.",
+    description: "Fluid Catalytic Cracking (FCC) Catalyst consists of ultra-stable Y zeolite (USY) embedded in a reactive alumina-silica matrix, formulated as fluidizable microspheroidal particles (average particle size 70–85 µm). Designed for fluidized catalytic cracking units operating in short contact-time riser configurations, it provides high microactivity (MAT conversion ≥75%), superior thermal/hydrothermal stability up to 800°C regenerator conditions, and robust nickel/vanadium metals passivation. Delivers exceptional gasoline selectivity, enhanced light olefins (propylene/butylenes) production, and minimal bottoms (slurry oil) yield.",
+    density: "2.1 – 2.4 g/cm³",
+    bulkDensity: "0.75 – 0.92 g/cm³ (compacted ABD)",
+    hardness: "Air Jet Attrition Index (AJI) < 1.0 wt%/h",
+    waterAbsorption: "Pore volume 0.35 – 0.45 cm³/g",
+    acidResistance: "High hydrothermal stability in steam",
+    alkaliResistance: "Controlled sodium < 0.2 wt% Na₂O",
+    crushStrength: "Microspherical — fluidizable grade",
+    maxTemp: "800 °C (Regenerator continuous)",
+    voidage: "BET surface area 220 – 350 m²/g",
+    sizes: "APS 70 – 85 µm (0 – 20 µm < 2%, > 150 µm < 3%)",
+    standard: "ASTM D5757 (Attrition) / ASTM D3907 (MAT)",
+    color: "#F2EEE6",
+    colorName: "Microsphere Ivory",
+    chemicalComposition: [
+      { element: "Al₂O₃", value: "40 – 55%" },
+      { element: "SiO₂", value: "40 – 55%" },
+      { element: "RE₂O₃ (Rare Earth)", value: "1.0 – 3.5%" },
+      { element: "Na₂O", value: "< 0.25%" },
+      { element: "Fe₂O₃", value: "< 0.4%" }
+    ],
+    applications: [
+      "Fluid catalytic cracking units (FCCU & RFCCU)",
+      "Vacuum gas oil (VGO) and residue conversion",
+      "High-octane gasoline and alkylation feed production",
+      "Petrochemical propylene maximization mode",
+      "Hydrotreated and sour heavy feedstock cracking"
+    ],
+    highlights: [
+      "High microactivity (MAT conversion ≥ 75%)",
+      "Low attrition rate (AJI < 1.0 wt%/h) minimises stack emissions",
+      "Integrated vanadium and nickel trap chemistry",
+      "Optimized matrix-to-zeolite ratio for heavy ends pre-cracking"
+    ],
+    featured: false,
+    is3DModel: null
+  },
+  {
+    id: "hydrocracking-catalyst",
+    image: "products/hydrocracking-catalyst.jpg",
+    name: "Hydrocracking Catalyst — Middle Distillates & Diesel",
+    category: "catalysts",
+    grade: "Zeolite-ASA / Ni-W & Ni-Mo",
+    material: "Modified USY Zeolite & Amorphous Silica-Alumina",
+    materialType: "HYC-MD",
+    shortDesc: "Premium dual-function hydrocracking catalyst maximizing ultra-clean diesel and high-smoke-point jet fuel from heavy gas oils.",
+    description: "Engineered for single-stage and two-stage hydrocracking units (OHCU / MHC / full conversion), this catalyst combines a dealuminated Y-zeolite with an amorphous silica-alumina (ASA) acidic cracking matrix and dispersed noble/non-noble transition metals (Ni-W / Ni-Mo). It delivers high single-pass conversion (>70–95%) with exceptional middle distillate selectivity (>80 wt%), producing high-cetane diesel (cetane index >58) and low-freeze-point kerosene/jet fuel with near-zero sulfur and nitrogen. Formulated in 1.6 mm cylindrical and 2.5 mm trilobe extrudates for optimal diffusion and low reactor bed pressure drop.",
+    density: "2.8 – 3.2 g/cm³",
+    bulkDensity: "0.68 – 0.82 g/cm³",
+    hardness: "Side crush strength ≥ 15 N/mm",
+    waterAbsorption: "Total pore volume ≥ 0.42 cm³/g",
+    acidResistance: "Acid cracking sites: 0.8 – 1.4 mmol/g",
+    alkaliResistance: "Pretreated against nitrogen poisoning",
+    crushStrength: "≥ 90 N per pellet (1.6 mm)",
+    maxTemp: "430 °C operating (thermal stability to 600°C)",
+    voidage: "Surface area 280 – 380 m²/g",
+    sizes: "1.6 mm cylindrical extrudates; 2.5 mm trilobes",
+    standard: "Severe hydroprocessing refinery service",
+    color: "#D8D4CC",
+    colorName: "Zeolite Grey",
+    chemicalComposition: [
+      { element: "WO₃ / MoO₃", value: "18 – 26 wt%" },
+      { element: "NiO", value: "3.5 – 6.5 wt%" },
+      { element: "Zeolite Y + ASA", value: "60 – 75 wt%" },
+      { element: "Al₂O₃ (Binder)", value: "Balance" }
+    ],
+    applications: [
+      "Once-through and recycle hydrocracking units",
+      "Vacuum gas oil (VGO) and DAO conversion",
+      "Ultra-low sulfur diesel (ULSD) maximization",
+      "High-smoke-point jet fuel production",
+      "Hydrocracker second-stage acidic cracking beds"
+    ],
+    highlights: [
+      "Middle distillate selectivity exceeding 80 wt%",
+      "Produces diesel with Cetane Index ≥ 58",
+      "Excellent middle distillate / naphtha flexibility",
+      "High hydrothermal stability under 150+ bar hydrogen"
+    ],
+    featured: false,
+    is3DModel: null
+  },
+  {
+    id: "silicon-metal-trap-catalyst",
+    image: "products/silicon-metal-trap-catalyst.jpg",
+    name: "Silicon & Demetallization Guard Catalyst",
+    category: "catalysts",
+    grade: "High Macropore Trap Alumina",
+    material: "Macroporous Alumina with Active Trapping Phase",
+    materialType: "SI-TRAP",
+    shortDesc: "High-capacity guard catalyst protecting hydroprocessing units from volatile silicon (antifoam) poisoning and heavy metal foulants.",
+    description: "Formulated with an open bimodal pore architecture featuring over 35% macropores (>500 Å), this guard catalyst intercepts volatile organosilicon compounds (polydimethylsiloxanes / siloxanes from coker antifoam chemicals) and organometallics (Ni, V, Fe) before they can reach and deactivate downstream high-activity hydrotreating and hydrocracking catalysts. Operating in the top 10–20% of reactor beds, it prevents rapid pore mouth plugging and catalyst crusting, extending hydroprocessing cycle lengths from 6 months to full 2–3 year run-lengths. High silicon pickup capacity exceeds 16–22 wt% Si.",
+    density: "2.9 – 3.2 g/cm³",
+    bulkDensity: "0.55 – 0.68 g/cm³",
+    hardness: "Side crush strength ≥ 12 N/mm",
+    waterAbsorption: "Total pore volume 0.70 – 0.95 cm³/g",
+    acidResistance: "Chemically resistant alumina body",
+    alkaliResistance: "Resistant to alkaline carryover",
+    crushStrength: "≥ 80 N per piece (trilobe)",
+    maxTemp: "450 °C",
+    voidage: "Macropore volume (>50nm) ≥ 0.28 cm³/g",
+    sizes: "1.3 mm, 2.5 mm trilobes; 3.0 mm quadralobes",
+    standard: "Refinery hydrotreater guard service",
+    color: "#EDE7D8",
+    colorName: "Porous Ivory",
+    chemicalComposition: [
+      { element: "Al₂O₃", value: "≥ 88 wt%" },
+      { element: "Active Trap Metals (Ni-Mo)", value: "6 – 10 wt%" },
+      { element: "SiO₂", value: "< 0.3 wt%" },
+      { element: "Macroporosity", value: "> 35% of total PV" }
+    ],
+    applications: [
+      "Coker naphtha & coker diesel hydrotreaters",
+      "Naphtha hydrotreater silicon guard beds",
+      "Hydrocracker top bed demetallization & trap layer",
+      "Visbreaker and residue hydroprocessing guards",
+      "Thermal cracker distillate stabilization"
+    ],
+    highlights: [
+      "Silicon pickup capacity ≥ 18 wt% Si",
+      "Bimodal macroporous network prevents pore plugging",
+      "Mild hydrodemetallization & olefin saturation activity",
+      "Extends primary catalyst charge life by 2× to 3×"
+    ],
+    featured: false,
+    is3DModel: null
+  },
+  {
+    id: "engineered-bed-grading-media",
+    image: "products/engineered-bed-grading-media.jpg",
+    name: "Engineered Bed Grading Media — Rings & Medallions",
+    category: "bed-support",
+    grade: "High-Voidage Fluted Shapes",
+    material: "Porous Alumina-Silicate / Active Alumina Carrier",
+    materialType: "EBG-MED",
+    shortDesc: "High-voidage particulate filtering shapes — fluted rings, macro rings and perforated medallions — preventing top-bed crusting and delta-P buildup.",
+    description: "Engineered Bed Grading Media provides an aerodynamically contoured particulate filtration zone at the reactor inlet. Replacing standard ceramic spheres in the top layers, these specialized geometries — including fluted rings, macro rings (8 mm), small rings (4.8 mm), and perforated medallions (16 mm) — boast bed void fractions of 55% to 75% compared to 38% for spherical balls. They capture iron sulfide particulates, coke fines, polymers and catalyst debris across their internal passages without bridging, preventing pressure-drop spikes (delta-P) and early reactor skims. Available in inert ceramic bodies and active HDM/HDS impregnated formulations.",
+    density: "2.4 – 2.8 g/cm³",
+    bulkDensity: "0.65 – 0.85 g/cm³ (shape dependent)",
+    hardness: "High mechanical strength against turbulence",
+    waterAbsorption: "Pore volume 0.30 – 0.50 cm³/g",
+    acidResistance: "≥ 99%",
+    alkaliResistance: "≥ 88%",
+    crushStrength: "Macro Ring: ≥ 120 N; Medallion: ≥ 250 N",
+    maxTemp: "1200 °C (Inert) / 450 °C (Active)",
+    voidage: "Inter-particle bed voidage 55 – 75%",
+    sizes: "4.8 mm rings, 8 mm macro rings, 16 mm medallions",
+    standard: "Refinery fixed-bed reactor top grading",
+    color: "#E4DCB8",
+    colorName: "Grading Buff",
+    chemicalComposition: [
+      { element: "Al₂O₃", value: "65 – 90% (grade dependent)" },
+      { element: "SiO₂", value: "8 – 30%" },
+      { element: "Active Mo / Ni (if promoted)", value: "2 – 6 wt%" },
+      { element: "Fe₂O₃", value: "< 0.3%" }
+    ],
+    applications: [
+      "Hydrotreater and hydrocracker top-of-bed grading",
+      "Residue desulfurization and CCR reactor inlets",
+      "Particulate filtration ahead of small catalyst extrudates",
+      "High-dirt-capacity guard beds and scale traps",
+      "Flow distributor and turbulence suppression layers"
+    ],
+    highlights: [
+      "55–75% bed voidage — 2× particulate capacity of spheres",
+      "Prevents reactor top-bed crusting and premature shutdown",
+      "Decreases rate of pressure drop buildup by up to 60%",
+      "Available in both inert filtering and active catalytic grades"
+    ],
+    featured: false,
+    is3DModel: null
+  },
+  {
+    id: "ht-shift-catalyst",
+    image: "products/ht-shift-catalyst.jpg",
+    name: "High Temperature Shift (HTS) Catalyst",
+    category: "catalysts",
+    grade: "Fe-Cr-Cu Promoted Oxide",
+    material: "Iron-Chromium Oxide with Copper Promoter",
+    materialType: "HTS-71",
+    shortDesc: "High-activity water-gas shift catalyst converting CO and steam into hydrogen and CO₂ in refinery hydrogen plants and syngas units.",
+    description: "High Temperature Shift (HTS) Catalyst is an iron oxide–chromium oxide formulation promoted with copper (Katalco 71-5 equivalent), engineered for high-temperature water-gas shift converters (CO + H₂O ⇌ CO₂ + H₂) operating at 320°C to 480°C. Chromia stabilizes the active magnetite (Fe₃O₄) phase against sintering, while copper promotion accelerates water-gas shift kinetics, enabling low CO slip and high conversion close to chemical equilibrium. The catalyst is supplied as high-strength cylindrical tablets with superior thermal shock resistance, low sulfur content to prevent Fischer-Tropsch by-product formation, and resistance to condensation during plant upsets.",
+    density: "4.2 – 4.6 g/cm³",
+    bulkDensity: "1.10 – 1.25 kg/L",
+    hardness: "High mechanical pellet strength",
+    waterAbsorption: "Pore volume 0.22 – 0.28 cm³/g",
+    acidResistance: "Steam-gas phase duty",
+    alkaliResistance: "Not applicable",
+    crushStrength: "≥ 250 N/pellet (radial crush)",
+    maxTemp: "480 °C (trip design 520°C)",
+    voidage: "Surface area 50 – 80 m²/g",
+    sizes: "6 × 6 mm and 9 × 9 mm cylindrical tablets",
+    standard: "Industrial syngas & hydrogen plant spec",
+    color: "#3C322B",
+    colorName: "Magnetite Brown",
+    chemicalComposition: [
+      { element: "Fe₂O₃", value: "80 – 85 wt%" },
+      { element: "Cr₂O₃", value: "7.5 – 9.0 wt%" },
+      { element: "CuO", value: "1.5 – 3.0 wt%" },
+      { element: "Sulfur (S)", value: "≤ 0.05 wt%" }
+    ],
+    applications: [
+      "Hydrogen Generation Units (HGU) in refineries",
+      "Ammonia synthesis gas shift conversion",
+      "Methanol synthesis syngas ratio adjustment",
+      "Direct reduced iron (DRI) process gas production",
+      "Town gas and fuel gas generation"
+    ],
+    highlights: [
+      "High CO conversion approaching thermodynamic equilibrium",
+      "Low sulfur formulation prevents hydrocarbon synthesis side-reactions",
+      "Copper-promoted for rapid activation and low-temperature activity",
+      "Superior pellet strength resists steam condensation damage"
+    ],
+    featured: false,
+    is3DModel: null
+  },
+  {
+    id: "ccr-reforming-catalyst",
+    image: "products/ccr-reforming-catalyst.jpg",
+    name: "Continuous Catalytic Reforming (CCR) Platinum Catalyst",
+    category: "catalysts",
+    grade: "Bimetallic Pt-Sn on Spherical Alumina",
+    material: "Platinum-Tin on Ultra-Pure Gamma Alumina",
+    materialType: "CCR-PLAT",
+    shortDesc: "High-octane bimetallic reforming catalyst for continuous catalyst regeneration (CCR Platforming) units producing reformate and high-purity hydrogen.",
+    description: "Continuous Catalytic Reforming (CCR) Catalyst is a premium bimetallic platinum-tin (Pt-Sn) catalyst supported on high-surface-area, high-purity spherical γ-alumina beads (1.6–1.8 mm diameter). Specifically engineered for moving-bed CCR platforming and reforming reactors, it facilitates continuous transfer between reactor stacks and regenerators without particle breakage. The balanced Pt-Sn active sites provide high C₅+ reformate yield (Research Octane Number RON 100–104), high hydrogen production, and low coke laydown rate. Features exceptional mechanical crush strength (>45 N/sphere) and ultra-low attrition rate (<0.04 wt%/h) for multi-year continuous circulation.",
+    density: "3.2 – 3.4 g/cm³",
+    bulkDensity: "0.58 – 0.66 g/cm³",
+    hardness: "Attrition rate < 0.04 wt%/h (ASTM D4058)",
+    waterAbsorption: "Pore volume 0.55 – 0.68 cm³/g",
+    acidResistance: "Acidic chlorided alumina matrix",
+    alkaliResistance: "Controlled alkali metals < 0.05%",
+    crushStrength: "≥ 45 N per sphere",
+    maxTemp: "540 °C operating (regeneration 560°C)",
+    voidage: "Surface area 180 – 230 m²/g",
+    sizes: "1.6 – 1.8 mm spherical beads",
+    standard: "Moving bed CCR Platforming specification",
+    color: "#D5D1C8",
+    colorName: "Platinum Pearl",
+    chemicalComposition: [
+      { element: "Platinum (Pt)", value: "0.25 – 0.30 wt%" },
+      { element: "Tin (Sn)", value: "0.25 – 0.40 wt%" },
+      { element: "Chloride (Cl)", value: "0.9 – 1.2 wt%" },
+      { element: "Al₂O₃", value: "Balance (≥ 98.5%)" }
+    ],
+    applications: [
+      "Continuous Catalytic Reforming (CCR) units",
+      "Heavy naphtha reforming for high-octane gasoline",
+      "Aromatics extraction units (Benzene, Toluene, Xylenes - BTX)",
+      "Refinery hydrogen network supply generation",
+      "Moving-bed continuous platformers"
+    ],
+    highlights: [
+      "High C₅+ reformate liquid yield (RON 100 – 104)",
+      "Ultra-low attrition rate prevents fines in elutriation hoppers",
+      "Optimized Pt-Sn dispersion for slow deactivation and easy regeneration",
+      "High hydrogen selectivity with low methane/ethane light ends"
+    ],
+    featured: false,
+    is3DModel: null
+  },
+  {
+    id: "ulsd-hydrotreating-catalyst",
+    image: "products/ulsd-hydrotreating-catalyst.jpg",
+    name: "Ultra-Low Sulfur Diesel (ULSD) Hydrotreating Catalyst",
+    category: "catalysts",
+    grade: "Type II High-Dispersion CoMo & NiMo",
+    material: "Promoted Cobalt-Molybdenum / Nickel-Molybdenum",
+    materialType: "ULSD-HT",
+    shortDesc: "Advanced quadralobe and trilobe hydrotreating catalysts delivering deep desulfurization (<10 ppm S) and denitrogenation for Euro VI / BS VI diesel.",
+    description: "Formulated with Type II highly dispersed CoMoS and NiMoS active phases on engineered meso-porous alumina carriers (KF-757/767, DN-3532/3636, HYT series equivalent), this catalyst achieves deep hydrodesulfurization (HDS) of sterically hindered sulfur species (4,6-dimethyldibenzothiophene) and deep hydrodenitrogenation (HDN). Formulated in quadralobe (1.3Q, 2.5Q) and trilobe (1.3TL, 2.5TL) geometries, it offers 25% lower diffusion resistance and higher geometric surface area than cylindrical pellets. Delivers Euro VI / BS VI compliant ultra-low sulfur diesel (<10 ppmw S) and high-quality FCC pretreated feedstocks with lower hydrogen consumption and extended operating cycles.",
+    density: "3.0 – 3.3 g/cm³",
+    bulkDensity: "0.68 – 0.82 g/cm³",
+    hardness: "Side crush strength ≥ 15 N/mm",
+    waterAbsorption: "Pore volume 0.45 – 0.58 cm³/g",
+    acidResistance: "High stability in H₂S/H₂ atmosphere",
+    alkaliResistance: "Controlled carrier neutrality",
+    crushStrength: "≥ 100 N per piece",
+    maxTemp: "420 °C",
+    voidage: "Surface area 200 – 280 m²/g",
+    sizes: "1.3 mm, 2.5 mm quadralobes (Q) & trilobes (TL)",
+    standard: "Euro VI / BS VI ULSD hydrotreater duty",
+    color: "#2D3035",
+    colorName: "Sulfide Slate",
+    chemicalComposition: [
+      { element: "MoO₃", value: "16 – 24 wt%" },
+      { element: "CoO / NiO", value: "3.5 – 5.5 wt%" },
+      { element: "P₂O₅ (Promoter)", value: "1.5 – 3.5 wt%" },
+      { element: "Al₂O₃", value: "Balance" }
+    ],
+    applications: [
+      "Diesel hydrodesulfurization (DHDS / DHDT units)",
+      "Production of Euro-VI / BS-VI diesel (<10 ppm sulfur)",
+      "Vacuum gas oil (VGO) hydrotreating & FCC feed pretreatment",
+      "Kerosene and jet fuel hydrotreating",
+      "Coker gas oil (CGO) and LCO hydroprocessing"
+    ],
+    highlights: [
+      "Deep desulfurization down to < 10 ppm sulfur",
+      "Superior activity on refractory 4,6-DMDBT molecules",
+      "Quadralobe shape lowers bed pressure drop and diffusion limits",
+      "High nitrogen tolerance and cetane number improvement"
+    ],
+    featured: false,
+    is3DModel: null
+  },
+  {
+    id: "zinc-oxide-desulfurization-catalyst",
+    image: "products/zinc-oxide-desulfurization-catalyst.jpg",
+    name: "Zinc Oxide Desulfurization Catalyst",
+    category: "catalysts",
+    grade: "High-Capacity Extruded ZnO",
+    material: "Pre-Activated Zinc Oxide on Refractory Binder",
+    materialType: "ZNO-CAT",
+    shortDesc: "High-surface-area zinc oxide extrudates purifying hydrocarbon feedstocks to sub-ppm H₂S ahead of steam reformers and syngas catalysts.",
+    description: "Zinc Oxide Desulfurization Catalyst (Katalco 32-4 / ActiSorb C7-6 HGU grade) is manufactured from high-purity zinc oxide bonded into high-porosity cylindrical extrudates. Designed for purification vessels ahead of steam reforming furnaces, hydrogen generation units (HGU), and syngas plants, it chemisorbs hydrogen sulfide (ZnO + H₂S → ZnS + H₂O) down to less than 0.05 ppmv. The carefully tailored pore architecture maintains high sulfur pickup capacity (≥32–38 wt% S) right up to the breakthrough point, ensuring complete bed utilization, maximum protection for nickel reforming catalysts, and predictable change-out intervals.",
+    density: "4.6 – 5.0 g/cm³",
+    bulkDensity: "1.15 – 1.35 kg/L",
+    hardness: "Low attrition loss < 0.5 wt%",
+    waterAbsorption: "Porosity 45 – 55%",
+    acidResistance: "Purpose-formulated for acid gas service",
+    alkaliResistance: "Thermally and chemically stable",
+    crushStrength: "≥ 75 N/pellet (radial crush strength)",
+    maxTemp: "400 °C (operating band 200 – 380°C)",
+    voidage: "Surface area 45 – 75 m²/g",
+    sizes: "3.2 mm, 4.0 mm, 4.8 mm cylindrical extrudates",
+    standard: "Refinery HGU & Syngas Feed Purification",
+    color: "#D2BE99",
+    colorName: "Zinc Buff",
+    chemicalComposition: [
+      { element: "ZnO", value: "≥ 90.0 wt% (typical 92 – 95%)" },
+      { element: "Al₂O₃ (Refractory Binder)", value: "5 – 8 wt%" },
+      { element: "Sulfur Capacity at Breakthrough", value: "≥ 32 – 38 wt%" },
+      { element: "Total Trace Impurities", value: "< 0.5 wt%" }
+    ],
+    applications: [
+      "Hydrogen Generation Unit (HGU) feed desulfurization",
+      "Steam methane reformer (SMR) feed gas purification",
+      "Natural gas, LPG, and light naphtha deep desulfurization",
+      "Synthesis gas polishing in ammonia and methanol plants",
+      "Protection of noble metal and nickel reforming catalysts"
+    ],
+    highlights: [
+      "Sulfur capacity exceeding 32–38 wt% before breakthrough",
+      "Reduces H₂S in process gas to < 0.05 ppmv",
+      "High macroporosity ensures full zinc oxide core utilization",
+      "Excellent hydrothermal stability in wet gas streams"
+    ],
+    featured: false,
+    is3DModel: null
+  },
+  {
+    id: "reformer-catalyst-tube-assembly",
+    image: "products/reformer-catalyst-tube-assembly.jpg",
+    name: "Steam Reformer Catalyst Tubes & Assemblies",
+    category: "refractory",
+    grade: "Paralloy H39WM / 25Cr-35Ni-Nb-Ti-Micro",
+    material: "Centrifugally Cast Heat-Resistant Micro-Alloy Steel",
+    materialType: "REF-TUBE",
+    shortDesc: "Centrifugally spun-cast micro-alloy reformer catalyst tubes and high-temperature spiral wound gaskets for primary reforming furnaces.",
+    description: "Reformer Catalyst Tubes and Assemblies are centrifugally cast from proprietary 25Cr-35Ni-Nb-Ti micro-alloy heat-resistant austenitic stainless steel (Paralloy H39WM / Manaurite equivalent). Engineered for primary steam methane and naphtha reformers in hydrogen plants, ammonia plants and methanol units, they withstand continuous design tube metal temperatures (TMT) up to 1050°C and internal pressures up to 40 bar. Tubes feature precision internally pull-bored surfaces to optimize catalyst packing density, enhance inner-wall heat transfer, and prevent hot-spot formation. Supplied as complete prefabricated tube assemblies with precision weld preps, top flange connections, catalyst support grids, and high-temperature spiral wound gaskets.",
+    density: "7.95 – 8.05 g/cm³",
+    bulkDensity: "Not applicable (fabricated tube assemblies)",
+    hardness: "HB 180 – 220",
+    waterAbsorption: "Non-porous solid alloy",
+    acidResistance: "Exceptional carburization & oxidation resistance",
+    alkaliResistance: "Resistant to steam-hydrocarbon atmospheres",
+    crushStrength: "Creep rupture strength 100,000h @ 950°C ≥ 18 MPa",
+    maxTemp: "1050 °C design tube metal temperature (1100°C peak)",
+    voidage: "Internally bored Ra ≤ 3.2 µm",
+    sizes: "OD 100 – 160 mm; Wall 10 – 18 mm; Length up to 14 meters",
+    standard: "ASTM A608 / Paralloy H39WM / ISO 13576",
+    color: "#80858A",
+    colorName: "Alloy Steel",
+    chemicalComposition: [
+      { element: "Chromium (Cr)", value: "24 – 27 wt%" },
+      { element: "Nickel (Ni)", value: "33 – 37 wt%" },
+      { element: "Carbon (C)", value: "0.35 – 0.45 wt%" },
+      { element: "Niobium (Nb)", value: "1.0 – 1.8 wt%" },
+      { element: "Micro-alloys (Ti, Zr, Rare Earths)", value: "Promoted additions" },
+      { element: "Iron (Fe)", value: "Balance" }
+    ],
+    applications: [
+      "Primary steam methane reformers (SMR)",
+      "Refinery hydrogen generation unit (HGU) reformer furnaces",
+      "Ammonia and methanol syngas reformer tubes",
+      "Midrex and HyL direct reduction DRI reformers",
+      "Catalyst tube replacement and furnace revamp assemblies"
+    ],
+    highlights: [
+      "Paralloy H39WM micro-alloy — 100,000h creep rupture life at 950°C",
+      "Internally pull-bored for uniform catalyst loading and lower TMT",
+      "Superior resistance to carburization and metal dusting",
+      "Supplied with high-temperature spiral wound sealing gaskets"
+    ],
+    featured: false,
+    is3DModel: null
   }
 ];
+

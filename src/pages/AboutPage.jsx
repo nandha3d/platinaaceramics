@@ -1,8 +1,12 @@
 import React from 'react';
+import { useSeo } from '../hooks/useSeo';
+import { seoFor } from '../lib/routeMeta';
 import PageHeader from './PageHeader';
 import AboutSection from '../components/AboutSection';
 
 export default function AboutPage() {
+  useSeo(seoFor("/about"));
+
   return (
     <>
       <PageHeader

@@ -37,3 +37,12 @@ refinery_estimate.html
 # Local render tooling output
 /render/out/
 /render/staging/
+
+# Deployment scripts containing credentials
+scripts/deploy*.mjs
+
+# Raw reference notes and client lists
+reference/
+
+# Environment variables
+.env*

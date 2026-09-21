@@ -112,7 +112,7 @@ export default function SpecCalculator({ openRfqModal }) {
             {/* Vessel diameter */}
             <div style={{ marginBottom: '28px' }}>
               <div style={fieldLabel}>
-                <label className="label-tech" style={{ color: 'color-mix(in srgb, var(--text-invert) 60%, transparent)' }}>
+                <label htmlFor="calc-vessel-dia" className="label-tech" style={{ color: 'var(--sand-200)' }}>
                   Vessel internal diameter
                 </label>
                 <span className="font-mono" style={{ color: 'var(--sand-300)', fontSize: '1rem' }}>
@@ -120,15 +120,17 @@ export default function SpecCalculator({ openRfqModal }) {
                 </span>
               </div>
               <input
+                id="calc-vessel-dia"
                 type="range"
                 min="500"
                 max="6000"
                 step="50"
+                aria-label="Vessel internal diameter in millimeters"
                 value={vesselDia}
                 onChange={(e) => setVesselDia(Number(e.target.value))}
                 style={sliderStyle}
               />
-              <div className="label-tech" style={{ display: 'flex', justifyContent: 'space-between', marginTop: '8px', fontSize: '0.6rem', color: 'color-mix(in srgb, var(--text-invert) 38%, transparent)' }}>
+              <div className="label-tech" style={{ display: 'flex', justifyContent: 'space-between', marginTop: '8px', fontSize: '0.75rem', color: 'var(--sand-300)' }}>
                 <span>500 mm</span>
                 <span>6000 mm</span>
               </div>
@@ -137,7 +139,7 @@ export default function SpecCalculator({ openRfqModal }) {
             {/* Layer depth */}
             <div style={{ marginBottom: '28px' }}>
               <div style={fieldLabel}>
-                <label className="label-tech" style={{ color: 'color-mix(in srgb, var(--text-invert) 60%, transparent)' }}>
+                <label htmlFor="calc-layer-depth" className="label-tech" style={{ color: 'var(--sand-200)' }}>
                   Layer depth
                 </label>
                 <span className="font-mono" style={{ color: 'var(--sand-300)', fontSize: '1rem' }}>
@@ -145,15 +147,17 @@ export default function SpecCalculator({ openRfqModal }) {
                 </span>
               </div>
               <input
+                id="calc-layer-depth"
                 type="range"
                 min="25"
                 max="1200"
                 step="25"
+                aria-label="Layer depth in millimeters"
                 value={layerDepth}
                 onChange={(e) => setLayerDepth(Number(e.target.value))}
                 style={sliderStyle}
               />
-              <div className="label-tech" style={{ display: 'flex', justifyContent: 'space-between', marginTop: '8px', fontSize: '0.6rem', color: 'color-mix(in srgb, var(--text-invert) 38%, transparent)' }}>
+              <div className="label-tech" style={{ display: 'flex', justifyContent: 'space-between', marginTop: '8px', fontSize: '0.75rem', color: 'var(--sand-300)' }}>
                 <span>25 mm</span>
                 <span>1200 mm</span>
               </div>
@@ -161,7 +165,7 @@ export default function SpecCalculator({ openRfqModal }) {
 
             {/* Ball size */}
             <div style={{ marginBottom: '28px' }}>
-              <label className="label-tech" style={{ color: 'color-mix(in srgb, var(--text-invert) 60%, transparent)', display: 'block', marginBottom: '12px' }}>
+              <label className="label-tech" style={{ color: 'var(--sand-200)', display: 'block', marginBottom: '12px' }}>
                 Ball diameter
               </label>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
@@ -192,7 +196,7 @@ export default function SpecCalculator({ openRfqModal }) {
 
             {/* Grade */}
             <div>
-              <label className="label-tech" style={{ color: 'color-mix(in srgb, var(--text-invert) 60%, transparent)', display: 'block', marginBottom: '12px' }}>
+              <label className="label-tech" style={{ color: 'var(--sand-200)', display: 'block', marginBottom: '12px' }}>
                 Media grade
               </label>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -213,7 +217,7 @@ export default function SpecCalculator({ openRfqModal }) {
                         textAlign: 'left',
                         background: active ? 'color-mix(in srgb, var(--sand-300) 14%, transparent)' : 'transparent',
                         border: `1px solid ${active ? 'var(--sand-400)' : 'color-mix(in srgb, var(--sand-300) 16%, transparent)'}`,
-                        color: active ? 'var(--sand-100)' : 'color-mix(in srgb, var(--text-invert) 62%, transparent)',
+                        color: active ? 'var(--sand-100)' : 'var(--sand-300)',
                         transition: 'var(--transition-fast)'
                       }}
                     >

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { companyInfo } from '../data/companyInfo';
-import { ShieldCheck, Phone, Mail, MapPin, Download, ArrowUpRight, Heart } from 'lucide-react';
+import { ShieldCheck, Phone, Mail, MapPin, ArrowUpRight } from 'lucide-react';
 
 export default function Footer({ openCalculator, openRfqModal }) {
   return (
@@ -22,10 +22,12 @@ export default function Footer({ openCalculator, openRfqModal }) {
           <div style={{ gridColumn: 'span 4' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
               <img
-                src={`${import.meta.env.BASE_URL}logo-mark.png`}
+                src={`${import.meta.env.BASE_URL}logo-mark.webp`}
                 alt="Platinaa Ceramics"
                 width={40}
                 height={40}
+                loading="lazy"
+                decoding="async"
                 style={{ width: '40px', height: '40px', objectFit: 'contain', display: 'block', flexShrink: 0 }}
               />
 
@@ -47,9 +49,9 @@ export default function Footer({ openCalculator, openRfqModal }) {
 
           {/* Col 2: Navigation Sitemap */}
           <div style={{ gridColumn: 'span 2' }}>
-            <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-bright)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '16px' }}>
+            <h3 style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-bright)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '16px' }}>
               Quick Links
-            </h4>
+            </h3>
             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.84rem' }}>
               <li><Link to="/" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Home</Link></li>
               <li><Link to="/products" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Product Catalogue</Link></li>
@@ -62,9 +64,9 @@ export default function Footer({ openCalculator, openRfqModal }) {
 
           {/* Col 3: Product Portfolio */}
           <div style={{ gridColumn: 'span 3' }}>
-            <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-bright)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '16px' }}>
+            <h3 style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-bright)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '16px' }}>
               Product Portfolio
-            </h4>
+            </h3>
             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.84rem' }}>
               <li><Link to="/products" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>High-Purity Inert Alumina Balls — 99%</Link></li>
               <li><Link to="/products" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>High-Alumina Inert Balls — 92%</Link></li>
@@ -77,9 +79,9 @@ export default function Footer({ openCalculator, openRfqModal }) {
 
           {/* Col 4: Contact & Factory Location */}
           <div style={{ gridColumn: 'span 3' }}>
-            <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-bright)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '16px' }}>
+            <h3 style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-bright)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '16px' }}>
               Head Office & Works
-            </h4>
+            </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.82rem' }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
                 <MapPin size={16} style={{ color: 'var(--primary-red)', shrink: 0, marginTop: '2px' }} />

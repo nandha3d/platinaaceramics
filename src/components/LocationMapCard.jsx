@@ -289,14 +289,16 @@ export default function LocationMapCard() {
           aria-label={expanded ? 'Shrink map' : 'Enlarge map'}
           style={{
             position: 'absolute', top: '12px', right: '12px', zIndex: 2,
-            width: '38px', height: '38px', borderRadius: 'var(--radius-sm)',
+            width: '44px', height: '44px', minWidth: '44px', minHeight: '44px',
+            borderRadius: 'var(--radius-sm)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             background: 'var(--bg-main)', border: '1px solid var(--border-light)',
             color: 'var(--text-bright)', cursor: 'pointer',
             boxShadow: '0 4px 14px color-mix(in srgb, var(--clay-900) 22%, transparent)'
           }}
         >
-          {expanded ? <Minimize2 size={17} /> : <Maximize2 size={17} />}
+          {expanded ? <Minimize2 size={17} aria-hidden="true" /> : <Maximize2 size={17} aria-hidden="true" />}
+          <span className="sr-only">{expanded ? 'Shrink map' : 'Enlarge map'}</span>
         </button>
       </div>
 

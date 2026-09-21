@@ -13,21 +13,36 @@
   # name of the product image directory; with `-d` here Apache stopped rewriting,
   # tried to list the directory, and returned 403 because listings are off. Since
   # nothing on this site relies on directory listings, letting directories fall
-  # through to the router is correct — /products/foo.jpg is a real file and is
-  # still served directly by the -f rule above.
+  # through is correct — /products/foo.jpg is a real file and is still served
+  # directly by this rule.
   RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
+
+  # Serve the PRERENDERED page for a route when one exists: /about is a
+  # directory containing index.html. Without this the next rule would hand every
+  # route the root index.html, which still works but throws away the prerendered
+  # HTML and its per-route metadata — the whole point of the build step.
+  # `.+?` not `.*?`: on a request for the base itself the path is empty, and the
+  # empty match rewrote to "/index.html", which Apache reads as an absolute path
+  # from the DOCUMENT ROOT — the wrong site entirely, and a 404. Requiring at
+  # least one character lets the base fall through to the SPA rule below.
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.+?)/?$ $1/index.html [L]
 
   RewriteRule ^ index.html [L]
 </IfModule>
 
-# Hashed asset filenames are immutable; the HTML shell must not be cached or
+# Hashed and static asset filenames are immutable; the HTML shell must not be cached or
 # clients keep loading an old bundle after a deploy.
 <IfModule mod_headers.c>
-  <FilesMatch "\.(js|css|woff2|jpg|png|svg|webp|avif)$">
+  <FilesMatch "\.(js|css|woff2|jpg|png|svg|webp|avif|hdr)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
   <FilesMatch "\.(html)$">
     Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json image/svg+xml application/octet-stream
 </IfModule>

@@ -758,3 +758,150 @@
   --accent-steel:   var(--cat-3);
   --accent-gold:    var(--cat-4);
 }
+
+
+/* ===========================================================================
+   TEST PALETTE — Green theme, amber buttons.         DELETE-ME BLOCK (start)
+   ---------------------------------------------------------------------------
+   The point of this one: the THEME colour and the BUTTON colour are two
+   different colours, which no other palette here does.
+
+   Every other block sets a single accent, and that accent paints both the
+   chrome (top bar, section rules, badges, card spines, pills, hotspots) and
+   the buttons — so a card reads as "one colour plus white". Here the whole
+   theme is green, and buttons are amber, so a button is the only amber thing
+   on the page and reads as the thing to click.
+
+   This works because index.css now exposes --btn-bg / --btn-bg-hover /
+   --btn-fg, which alias --brand-red by default. Overriding them is what
+   splits the two roles; every other palette leaves them alone and is
+   unchanged.
+
+   To revert: delete this block, the matching entry in src/data/palettes.js,
+   and — if the split is not wanted at all — the --btn-* aliases in index.css.
+
+   Contrast: text tokens and --cat-* are >= 4.5:1 on #F2F2F2 / #FFFFFF /
+   #E6E6E9; green accent as text 6.28:1; white on green chrome 7.82:1; button
+   ink on amber 7.69:1. The amber is deliberately much lighter than the green
+   (3.62:1 between them) so a button does not sink into green chrome next to
+   it — the mid-tone orange that was here before scored 1.29:1 against the
+   same green and turned to mud wherever the two touched.
+   =========================================================================== */
+:root[data-palette="greentest"] {
+  --sand-50:  #FAFAFA;
+  --sand-100: #F1F3F2;
+  --sand-200: #E5E7E6;
+  --sand-300: #D4D9D7;
+  --sand-400: #B3BDB9;
+  --sand-500: #8A9994;
+  --sand-600: #63746E;
+
+  /* Green ramp — the boxes, header bar, footer, dark sections. */
+  --clay-400: #3B916C;
+  --clay-500: #267352;
+  --clay-600: #1B5D40;
+  --clay-700: #154C34;
+  --clay-800: #12452F;
+  --clay-900: #0B2C1E;
+  --navy-400: #3B916C;
+  --navy-500: #267352;
+  --navy-600: #1B5D40;
+  --navy-700: #154C34;
+  --navy-800: #12452F;
+  --navy-900: #0B2C1E;
+
+  /* THEME accent — also green. This is what makes the boxes and their chrome
+     read as one green thing instead of "white box with a coloured strip". */
+  --brand-red: #1B5D40;
+  --brand-red-hover: #267352;
+  --brand-red-dark: #154C34;
+  --primary-red: #1B5D40;
+  --primary-red-hover: #267352;
+  --primary-red-dark: #154C34;
+  --primary-red-glow: rgba(27, 93, 64, 0.22);
+  --primary-red-light: rgba(27, 93, 64, 0.09);
+
+  /* BUTTONS — amber, and nothing else on the page uses it. Dark ink rather
+     than white: white on this amber is 2.16:1 and unreadable. */
+  --btn-bg: #EFA02A;
+  --btn-bg-hover: #FFB343;
+  --btn-fg: #2E1A04;
+
+  --bg-main: #F1F3F2;
+  --bg-surface-1: #FAFAFA;
+  --bg-surface-2: #E5E7E6;
+  --bg-invert: #12452F;
+  --surface-card: #FFFFFF;
+
+  --border-light: rgba(18, 69, 47, 0.12);
+  --border-mid:   rgba(18, 69, 47, 0.20);
+  --border-glow:  rgba(239, 160, 42, 0.45);
+
+  --text-bright: #0B3D2A;
+  --text-body:   #33544A;
+  --text-muted:  #3E5F55;
+  --text-subtle: #47665D;
+  --text-invert: #F1F3F2;
+
+  --shadow-sm: 0 1px 2px rgba(18, 69, 47, 0.06);
+  --shadow-md: 0 12px 32px -12px rgba(18, 69, 47, 0.18);
+  --shadow-lg: 0 28px 60px -24px rgba(18, 69, 47, 0.30);
+  --shadow-glow: 0 12px 32px -12px rgba(239, 160, 42, 0.40);
+
+  --cat-1: #B03B0B;
+  --cat-2: #1F6F84;
+  --cat-3: #6A4CB8;
+  --cat-4: #7D6111;
+  --cat-5: #B02D6E;
+  --on-accent: #FFFFFF;
+
+  --accent-rust:    var(--cat-1);
+  --accent-emerald: var(--cat-2);
+  --accent-blue:    var(--cat-3);
+  --accent-steel:   var(--cat-3);
+  --accent-gold:    var(--cat-4);
+}
+
+/* The product card itself in the theme colour, with the button the odd one out.
+   ---------------------------------------------------------------------------
+   Only the card is re-tokenised, not --surface-card globally: that token backs
+   every panel on the site (spec tiles, the compare drawer, the map card, the
+   modal) and all of them expect dark text on a light ground, so flipping it at
+   :root would take the whole page down with it.
+
+   Redefining the tokens ON the card rather than writing new rules means every
+   descendant follows without being touched — .pc-title, .pc-desc, the three
+   color-mix() pills and the ghost button all resolve against the card's own
+   values. That is also why the pill hues are re-stated lighter here: the mix
+   base is now dark, so the light-background versions would vanish into it.
+
+   Contrast on the green card: title 9.82, body 7.62, muted 6.20, pills 4.67 /
+   4.88 / 5.41, ink on the amber button 7.69. */
+:root[data-palette="greentest"] .product-card {
+  --surface-card: #12452F;
+  --bg-surface-2: #154C34;
+  --border-light: rgba(241, 243, 242, 0.15);
+  --border-mid:   rgba(241, 243, 242, 0.26);
+
+  --text-bright: #F1F3F2;
+  --text-body:   #C8DCD1;
+  --text-muted:  #AFC9BB;
+  --text-subtle: #9BB8A8;
+
+  /* Pill hues, lightened for a dark ground. Same three roles, same spread. */
+  --cat-2: #79D6A6;
+  --cat-3: #AFBBF5;
+  --cat-4: #E0CE7E;
+
+  background: var(--surface-card);
+  border-color: var(--border-light);
+}
+
+/* The hairline between the two buttons, and the strip they sit in, both come
+   from --border-light, which is now a translucent white — correct on the card
+   but it would leave a pale seam across the amber button. */
+:root[data-palette="greentest"] .pc-actions {
+  background: rgba(241, 243, 242, 0.15);
+  border-top-color: rgba(241, 243, 242, 0.15);
+}
+/* ============================ DELETE-ME BLOCK (end) ======================= */

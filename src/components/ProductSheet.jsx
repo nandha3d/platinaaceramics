@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useReveal } from '../hooks/useReveal';
 import {
-  X, Send, AlertTriangle, Shield, ShieldCheck, Thermometer, Gem,
+  Send, AlertTriangle, Shield, ShieldCheck, Thermometer, Gem,
   Atom, Factory, Recycle, FlaskConical, Leaf,
   Droplets, Weight, Gauge, Ruler, Flame, Layers, Maximize2, Grid3x3, BadgeCheck
 } from 'lucide-react';
@@ -220,15 +219,15 @@ export default function ProductSheet({ product, sheet, openRfqModal }) {
           <div>
             <div style={{
               display: 'inline-block', background: 'var(--brand-red)', color: 'var(--on-accent)',
-              padding: '5px 13px', borderRadius: '3px', fontSize: '0.64rem',
+              padding: '5px 13px', borderRadius: '3px', fontSize: '0.75rem',
               fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase',
               marginBottom: '16px'
             }}>Technical Specification</div>
 
-            <h2 className="headline-print" style={{
+            <h1 className="headline-print" style={{
               fontSize: 'clamp(1.6rem, 3.3vw, 2.4rem)', color: 'var(--on-accent)',
               marginBottom: '14px', textWrap: 'balance'
-            }}>{product.name}</h2>
+            }}>{product.name}</h1>
 
             <p style={{
               color: 'color-mix(in srgb, var(--text-invert) 80%, transparent)', fontSize: '0.92rem',
@@ -236,8 +235,8 @@ export default function ProductSheet({ product, sheet, openRfqModal }) {
             }}>{sheet.strapline}</p>
 
             <p style={{
-              fontFamily: 'var(--font-mono)', fontSize: '0.7rem',
-              color: 'color-mix(in srgb, var(--text-invert) 58%, transparent)', letterSpacing: '0.05em'
+              fontFamily: 'var(--font-mono)', fontSize: '0.75rem',
+              color: 'color-mix(in srgb, var(--text-invert) 70%, transparent)', letterSpacing: '0.05em'
             }}>{product.material} · Grade Code {product.materialType}</p>
           </div>
 
@@ -273,7 +272,7 @@ export default function ProductSheet({ product, sheet, openRfqModal }) {
                 textShadow: '0 2px 12px rgba(0,0,0,0.30)'
               }}>{s.value}</div>
               <div style={{
-                fontSize: '0.63rem', textTransform: 'uppercase', letterSpacing: '0.14em',
+                fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.14em',
                 color: 'color-mix(in srgb, var(--on-accent) 84%, transparent)', marginTop: '8px'
               }}>{s.label}</div>
             </div>
@@ -284,7 +283,7 @@ export default function ProductSheet({ product, sheet, openRfqModal }) {
       {/* ============ MATERIAL OVERVIEW ============ */}
       <div style={{ background: 'var(--surface-card)', padding: '34px 34px 6px' }}>
         <div className="reveal overview-card">
-          <h4 className="overview-title">Material Overview</h4>
+          <h3 className="overview-title">Material Overview</h3>
           <p className="overview-body">{product.description}</p>
         </div>
       </div>
@@ -564,9 +563,9 @@ export default function ProductSheet({ product, sheet, openRfqModal }) {
         display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))', gap: '28px'
       }}>
         <div className="reveal">
-          <h4 style={{ fontSize: '1.02rem', fontWeight: 700, color: 'var(--text-bright)', marginBottom: '10px' }}>
+          <h3 style={{ fontSize: '1.02rem', fontWeight: 700, color: 'var(--text-bright)', marginBottom: '10px' }}>
             Recommended Applications
-          </h4>
+          </h3>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
             {product.applications.map((app) => (
               <span key={app} style={{
@@ -583,9 +582,9 @@ export default function ProductSheet({ product, sheet, openRfqModal }) {
             background: 'var(--bg-main)', border: `1px solid ${RULE}`,
             padding: '20px', borderRadius: 'var(--radius-md)'
           }}>
-            <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-bright)', marginBottom: '12px' }}>
+            <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-bright)', marginBottom: '12px' }}>
               Request Bulk Quotation
-            </h4>
+            </h3>
             <form onSubmit={handleQuickInquiry} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <input
                 type="text" aria-label="Your name or company" placeholder="Your Name / Company"

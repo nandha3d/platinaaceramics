@@ -1,8 +1,12 @@
 import React from 'react';
+import { useSeo } from '../hooks/useSeo';
+import { seoFor } from '../lib/routeMeta';
 import PageHeader from './PageHeader';
 import SpecCalculator from '../components/SpecCalculator';
 
 export default function CalculatorPage({ openRfqModal }) {
+  useSeo(seoFor("/calculator"));
+
   return (
     <>
       <PageHeader

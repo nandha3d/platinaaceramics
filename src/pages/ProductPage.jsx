@@ -6,6 +6,7 @@ import { buildSpecSheet } from '../data/specSheets';
 import ProductSheet from '../components/ProductSheet';
 import { useReveal } from '../hooks/useReveal';
 import NotFoundPage from './NotFoundPage';
+import { applySeo, breadcrumbs, SITE_URL } from '../lib/seo';
 
 /**
  * Standalone page per grade — the shareable, indexable counterpart to the modal.
@@ -16,21 +17,49 @@ export default function ProductPage({ openRfqModal, toggleCompare, compareList }
   const pageRef = useRef(null);
   const product = products.find((p) => p.id === productId);
 
-  // Per-page title and description. Without this every route would inherit the
-  // one title from index.html, which defeats the point of separate pages.
+  /*
+   * Full head metadata plus Product structured data.
+   *
+   * This used to set only title and description by hand. Everything else —
+   * canonical, Open Graph, the noindex guard on non-production hosts — now comes
+   * from the shared helper, so a product URL shared in a message or indexed by a
+   * crawler carries the same information the rest of the site does. The Product
+   * schema is what lets a result show the grade and alumina content directly.
+   */
   useEffect(() => {
     if (!product) return undefined;
-    const prevTitle = document.title;
-    document.title = `${product.name} | Platinaa Industrial Ceramics`;
-
-    const meta = document.querySelector('meta[name="description"]');
-    const prevDesc = meta ? meta.getAttribute('content') : null;
-    if (meta) meta.setAttribute('content', product.shortDesc);
-
-    return () => {
-      document.title = prevTitle;
-      if (meta && prevDesc !== null) meta.setAttribute('content', prevDesc);
-    };
+    return applySeo({
+      title: `${product.name} — Technical Datasheet | Platinaa Ceramics`,
+      description: product.shortDesc,
+      path: `/products/${product.id}`,
+      image: product.image,
+      type: 'product',
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Product',
+            name: product.name,
+            description: product.shortDesc,
+            image: product.image ? `${SITE_URL}/${String(product.image).replace(/^\//, '')}` : undefined,
+            category: product.category,
+            material: 'Alumina (Al2O3)',
+            brand: { '@type': 'Organization', name: 'Platinaa Industrial Ceramics Pvt Ltd' },
+            manufacturer: { '@type': 'Organization', name: 'Platinaa Industrial Ceramics Pvt Ltd' },
+            additionalProperty: [
+              product.grade && { '@type': 'PropertyValue', name: 'Grade', value: product.grade },
+              product.density && { '@type': 'PropertyValue', name: 'Density', value: product.density },
+              product.acidResistance && { '@type': 'PropertyValue', name: 'Acid resistance', value: product.acidResistance }
+            ].filter(Boolean)
+          },
+          breadcrumbs([
+            { name: 'Home', path: '/' },
+            { name: 'Products', path: '/products' },
+            { name: product.name, path: `/products/${product.id}` }
+          ])
+        ]
+      }
+    });
   }, [product]);
 
   // Without this the sheet's .reveal-seq children stay at opacity 0 forever.

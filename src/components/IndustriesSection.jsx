@@ -46,8 +46,11 @@ export default function IndustriesSection({ onSelectIndustryFilter }) {
               {industries.map((ind) => {
                 const isActive = selectedIndustry.id === ind.id;
                 return (
-                  <div
+                  <button
                     key={ind.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
                     onClick={() => setSelectedIndustry(ind)}
                     style={{
                       padding: '14px 18px',
@@ -58,6 +61,9 @@ export default function IndustriesSection({ onSelectIndustryFilter }) {
                       cursor: 'pointer',
                       display: 'flex',
                       alignItems: 'center',
+                      textAlign: 'left',
+                      fontFamily: 'inherit',
+                      width: '100%',
                       gap: '14px',
                       boxShadow: '0 2px 8px color-mix(in srgb, var(--clay-800) 3%, transparent)',
                       transition: 'var(--transition-fast)'
@@ -76,13 +82,13 @@ export default function IndustriesSection({ onSelectIndustryFilter }) {
                       <div style={{ fontWeight: isActive ? 700 : 600, fontSize: '0.95rem' }}>
                         {ind.title}
                       </div>
-                      <div style={{ fontSize: '0.76rem', color: 'var(--text-subtle)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '240px' }}>
+                      <div style={{ fontSize: '0.78rem', color: 'var(--text-subtle)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '240px' }}>
                         {ind.shortDesc}
                       </div>
                     </div>
 
                     <ArrowRight size={16} style={{ color: isActive ? 'var(--primary-red)' : 'transparent' }} />
-                  </div>
+                  </button>
                 );
               })}
             </div>

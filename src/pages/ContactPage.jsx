@@ -1,9 +1,13 @@
 import React from 'react';
+import { useSeo } from '../hooks/useSeo';
+import { seoFor } from '../lib/routeMeta';
 import PageHeader from './PageHeader';
 import ContactSection from '../components/ContactSection';
 import LocationMapCard from '../components/LocationMapCard';
 
 export default function ContactPage({ rfqProduct, onCloseRfq }) {
+  useSeo(seoFor("/contact"));
+
   return (
     <>
       <PageHeader

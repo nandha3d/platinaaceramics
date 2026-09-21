@@ -64,7 +64,9 @@ export default function ProductDetailModal({ product, onClose, openRfqModal }) {
           }}
         >
           <button
-            onClick={onClose} aria-label="Close specification sheet"
+            type="button"
+            onClick={onClose}
+            aria-label="Close specification sheet"
             style={{
               pointerEvents: 'auto', margin: '18px 18px 0 0',
               background: 'var(--surface-card)',
@@ -73,7 +75,10 @@ export default function ProductDetailModal({ product, onClose, openRfqModal }) {
               justifyContent: 'center', cursor: 'pointer', flexShrink: 0,
               boxShadow: '0 6px 20px color-mix(in srgb, var(--clay-900) 35%, transparent)'
             }}
-          ><X size={20} /></button>
+          >
+            <X size={20} aria-hidden="true" />
+            <span className="sr-only">Close specification sheet</span>
+          </button>
         </div>
 
         <ProductSheet product={product} sheet={sheet} openRfqModal={openRfqModal} />

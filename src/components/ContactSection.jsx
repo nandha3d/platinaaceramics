@@ -143,7 +143,7 @@ export default function ContactSection({ rfqProduct, onCloseRfq }) {
                   color: 'var(--text-bright)'
                 }}>
                   <CheckCircle2 size={48} style={{ color: 'var(--accent-emerald)', marginBottom: '12px' }} />
-                  <h4 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '8px' }}>Quotation Request Generated!</h4>
+                  <h3 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '8px' }}>Quotation Request Generated!</h3>
                   <p style={{ fontSize: '0.9rem', color: 'var(--text-body)' }}>
                     Your request has been prepared. Opening WhatsApp sales chat to connect with our technical engineers...
                   </p>
@@ -153,10 +153,11 @@ export default function ContactSection({ rfqProduct, onCloseRfq }) {
                   
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                     <div>
-                      <label style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-bright)', display: 'block', marginBottom: '6px' }}>
+                      <label htmlFor="rfq-fullname" style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-bright)', display: 'block', marginBottom: '6px' }}>
                         Full Name *
                       </label>
                       <input
+                        id="rfq-fullname"
                         type="text"
                         required
                         placeholder="John Doe"
@@ -167,10 +168,11 @@ export default function ContactSection({ rfqProduct, onCloseRfq }) {
                     </div>
 
                     <div>
-                      <label style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-bright)', display: 'block', marginBottom: '6px' }}>
+                      <label htmlFor="rfq-company" style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-bright)', display: 'block', marginBottom: '6px' }}>
                         Company / Enterprise Name *
                       </label>
                       <input
+                        id="rfq-company"
                         type="text"
                         required
                         placeholder="Acme Chemical Pvt Ltd"
@@ -183,10 +185,11 @@ export default function ContactSection({ rfqProduct, onCloseRfq }) {
 
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                     <div>
-                      <label style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-bright)', display: 'block', marginBottom: '6px' }}>
+                      <label htmlFor="rfq-email" style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-bright)', display: 'block', marginBottom: '6px' }}>
                         Work Email *
                       </label>
                       <input
+                        id="rfq-email"
                         type="email"
                         required
                         placeholder="name@company.com"
@@ -197,10 +200,11 @@ export default function ContactSection({ rfqProduct, onCloseRfq }) {
                     </div>
 
                     <div>
-                      <label style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-bright)', display: 'block', marginBottom: '6px' }}>
+                      <label htmlFor="rfq-phone" style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-bright)', display: 'block', marginBottom: '6px' }}>
                         Phone / Mobile *
                       </label>
                       <input
+                        id="rfq-phone"
                         type="tel"
                         required
                         placeholder="+91 98765 43210"
@@ -213,10 +217,12 @@ export default function ContactSection({ rfqProduct, onCloseRfq }) {
 
                   <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '16px' }}>
                     <div>
-                      <label style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-bright)', display: 'block', marginBottom: '6px' }}>
+                      <label htmlFor="rfq-product" style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-bright)', display: 'block', marginBottom: '6px' }}>
                         Select Product Media Grade
                       </label>
                       <select
+                        id="rfq-product"
+                        aria-label="Select Product Media Grade"
                         value={formState.product}
                         onChange={(e) => setFormState({ ...formState, product: e.target.value })}
                         style={{ width: '100%', background: 'var(--bg-main)', border: '1px solid var(--border-light)', color: 'var(--text-bright)', padding: '10px 14px', borderRadius: 'var(--radius-sm)', fontSize: '0.88rem', outline: 'none', cursor: 'pointer' }}
@@ -228,10 +234,11 @@ export default function ContactSection({ rfqProduct, onCloseRfq }) {
                     </div>
 
                     <div>
-                      <label style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-bright)', display: 'block', marginBottom: '6px' }}>
+                      <label htmlFor="rfq-quantity" style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-bright)', display: 'block', marginBottom: '6px' }}>
                         Estimated Quantity (KG)
                       </label>
                       <input
+                        id="rfq-quantity"
                         type="text"
                         placeholder="e.g. 500 KG"
                         value={formState.quantityKg}
@@ -242,10 +249,11 @@ export default function ContactSection({ rfqProduct, onCloseRfq }) {
                   </div>
 
                   <div>
-                    <label style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-bright)', display: 'block', marginBottom: '6px' }}>
+                    <label htmlFor="rfq-message" style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-bright)', display: 'block', marginBottom: '6px' }}>
                       Additional Technical Notes / Slurry Viscosity Details
                     </label>
                     <textarea
+                      id="rfq-message"
                       rows={3}
                       placeholder="Reactor / vessel ID, bed depth, operating temperature and pressure, required layer sizes and quantity..."
                       value={formState.message}
